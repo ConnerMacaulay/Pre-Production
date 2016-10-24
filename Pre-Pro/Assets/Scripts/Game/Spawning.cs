@@ -8,12 +8,23 @@ public class Spawning : MonoBehaviour {
     public int noMicrobes;
     public int setMicrobes;
     public int dMicrobes = 0;
+    public int killScore = 10;
+
+    Score scoreScript;
 
 	// Use this for initialization
 	void Start () {
 
-        setMicrobes = noMicrobes;       
-	}
+        setMicrobes = noMicrobes;
+
+        GameObject managerObj = GameObject.Find("Manager");
+
+        if (managerObj != null)
+        {
+            scoreScript = managerObj.GetComponent<Score>();
+
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -31,13 +42,15 @@ public class Spawning : MonoBehaviour {
                 {
                     Destroy(bc.gameObject);
                     dMicrobes += 1;
+                    scoreScript.AddScore(killScore);
                     Debug.Log("Hit");
                 }
             }
 
+            //NEEDS TO BE REMOVED
             if (dMicrobes == setMicrobes)
             {
-                Application.LoadLevel("Game");
+                noMicrobes = 5;
             }
         }
         //Checks if all the microbes have been spawned

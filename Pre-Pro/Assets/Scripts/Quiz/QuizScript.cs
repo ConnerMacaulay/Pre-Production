@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.UI;
+
 
 public class QuizScript : MonoBehaviour {
 
@@ -9,6 +11,8 @@ public class QuizScript : MonoBehaviour {
     public Button answer2;
     public Button answer3;
     public Button answer4;
+
+    public Text scoreText;
 
     public List<string> questions = new List<string>();
 
@@ -81,6 +85,19 @@ public class QuizScript : MonoBehaviour {
 
 
     }
+
+    void Update()
+    {
+        GameObject scoreManager = GameObject.Find("ScoreManager");
+        if (scoreManager != null)
+        {
+            scoreText.text = "Score: " + scoreManager.GetComponent<Score>().score.ToString();
+        }
+        else
+        {
+            Debug.LogError("SCORE MANAGER MISSING!!!");
+        }
+    }
 	
 
     public void CheckAnswer(Button button)
@@ -90,15 +107,28 @@ public class QuizScript : MonoBehaviour {
             Debug.Log("CORRECT!!!!!!!!!");
             button.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
             winSound.PlayOneShot(win,0.8f);
-            Application.LoadLevel("Menu");
+            StartCoroutine(WaitAndLoadLevel(GetComponent<AudioSource>().clip.length));
         }
         else
         {
             Debug.Log("FALSE :(");
+            GameObject scoreManager = GameObject.Find("ScoreManager");
+            if (scoreManager != null)
+            {
+                scoreManager.GetComponent<Score>().score -= 40;
+            }
             button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
             wrongSound.PlayOneShot(wrong, 0.8f);
         }
     }
 
-   
+    IEnumerator WaitAndLoadLevel(float audioTime)
+    {
+        yield return new WaitForSeconds(audioTime);
+        Application.LoadLevel("End");
+
+    }
+
+
 }
+    

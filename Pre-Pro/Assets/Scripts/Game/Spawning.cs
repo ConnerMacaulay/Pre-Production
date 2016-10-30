@@ -10,6 +10,8 @@ public class Spawning : MonoBehaviour {
     public int dMicrobes = 0;
     public int killScore = 10;
 
+    public GameObject clockPrefab;
+
     Score scoreScript;
 
     private AudioSource bubbleSound;
@@ -22,11 +24,11 @@ public class Spawning : MonoBehaviour {
 
         setMicrobes = noMicrobes;
 
-        GameObject managerObj = GameObject.Find("Manager");
+        GameObject scoreManagerObj = GameObject.Find("ScoreManager");
 
-        if (managerObj != null)
+        if (scoreManagerObj != null)
         {
-            scoreScript = managerObj.GetComponent<Score>();
+            scoreScript = scoreManagerObj.GetComponent<Score>();
 
         }
     }
@@ -45,11 +47,22 @@ public class Spawning : MonoBehaviour {
                 BoxCollider bc = hit.collider as BoxCollider;
                 if (bc != null)
                 {
-                    Destroy(bc.gameObject);
-                    dMicrobes += 1;
-                    scoreScript.AddScore(killScore);
-                    bubbleSound.PlayOneShot(bubble, 0.8f);
-                    Debug.Log("Hit");
+                    if (bc.gameObject.tag == "Clock")
+                    {
+                        Destroy(bc.gameObject);
+                        GetComponent<Timer>().AddTime(3.0f);
+                    }
+                    else if (bc.gameObject.tag == "BadMicrobe")
+                    {
+                        Destroy(bc.gameObject);
+                        dMicrobes += 1;
+                        scoreScript.AddScore(killScore);
+                        bubbleSound.PlayOneShot(bubble, 0.8f);
+                        Debug.Log("Hit");
+                    }
+
+                    
+                    
                 }
             }
         }
@@ -64,6 +77,8 @@ public class Spawning : MonoBehaviour {
         {
             dMicrobes = 0;
             noMicrobes = 5;
+            SpawnClockPower();
+
         }
         //Respawns microbes
         if (Input.GetMouseButtonDown(1))
@@ -77,7 +92,23 @@ public class Spawning : MonoBehaviour {
     {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
-       
         Instantiate(microbe, transform.position + randomPos, Quaternion.identity);
+
+       
+       
     }
+
+    private void SpawnClockPower()
+    {
+        Vector3 randomPos = Random.insideUnitSphere * range;
+        randomPos.z = -1;
+        int randomChance = Random.Range(-1, 1);
+        Debug.Log(randomChance.ToString());
+        if (randomChance == 0)
+        {
+            Instantiate(clockPrefab, transform.position + randomPos, Quaternion.identity);
+        }
+    }
+
+   
 }

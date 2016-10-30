@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour {
 
     void Start()
     {
-        timeLeft = 10; //Resetst the timer to the set time on start
+       // timeLeft = 10; //Resetst the timer to the set time on start
         TimerCount();
     }
     void Update()
@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour {
             timeLeft -= Time.deltaTime;
             timeLeftInt = Mathf.FloorToInt(timeLeft);
             TimerCount();
-            Debug.Log(timeLeftInt);
+           // Debug.Log(timeLeftInt);
         }
 
         if (timeLeftInt == 0)
@@ -33,5 +33,10 @@ public class Timer : MonoBehaviour {
     void TimerCount ()
     {
         timer.text = timeLeftInt.ToString();
+    }
+
+    public void AddTime(float time)
+    {
+        timeLeft += time;
     }
 }

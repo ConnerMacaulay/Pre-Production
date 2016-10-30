@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour {
 
         if (timeLeftInt == 0)
         {
-            Application.LoadLevel("Quiz");
+            StartCoroutine(WaitAndLoadLevel(1.0f));
         }
     }
     //Converts the Int to a string and sends it to the timer Obj
@@ -38,5 +38,14 @@ public class Timer : MonoBehaviour {
     public void AddTime(float time)
     {
         timeLeft += time;
+    }
+
+    IEnumerator WaitAndLoadLevel(float t)
+    {
+        Cursor.visible = false;
+        yield return new WaitForSeconds(t);
+        Application.LoadLevel("Quiz");
+
+
     }
 }

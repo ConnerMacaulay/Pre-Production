@@ -28,6 +28,7 @@ public class QuizScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+        Cursor.visible = true;
         winSound = GetComponent<AudioSource>();
         wrongSound = GetComponent<AudioSource>();
 

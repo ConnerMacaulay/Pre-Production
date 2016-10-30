@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour {
 
     void Start()
     {
-        timeLeft = timeLeft; //Resetst the timer to the set time on start
+        timeLeft = 10; //Resetst the timer to the set time on start
         TimerCount();
     }
     void Update()
@@ -26,7 +26,7 @@ public class Timer : MonoBehaviour {
 
         if (timeLeftInt == 0)
         {
-            Application.LoadLevel("End");
+            Application.LoadLevel("Quiz");
         }
     }
     //Converts the Int to a string and sends it to the timer Obj

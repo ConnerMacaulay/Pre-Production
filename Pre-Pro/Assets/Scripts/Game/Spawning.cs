@@ -12,8 +12,13 @@ public class Spawning : MonoBehaviour {
 
     Score scoreScript;
 
-	// Use this for initialization
-	void Start () {
+    private AudioSource bubbleSound;
+    public AudioClip bubble;
+
+    // Use this for initialization
+    void Start () {
+
+        bubbleSound = GetComponent<AudioSource>();
 
         setMicrobes = noMicrobes;
 
@@ -43,14 +48,9 @@ public class Spawning : MonoBehaviour {
                     Destroy(bc.gameObject);
                     dMicrobes += 1;
                     scoreScript.AddScore(killScore);
+                    bubbleSound.PlayOneShot(bubble, 0.8f);
                     Debug.Log("Hit");
                 }
-            }
-
-            //NEEDS TO BE REMOVED
-            if (dMicrobes == setMicrobes)
-            {
-                noMicrobes = 5;
             }
         }
         //Checks if all the microbes have been spawned
@@ -58,6 +58,12 @@ public class Spawning : MonoBehaviour {
         {
             Spawn();
             noMicrobes -= 1;
+        }
+
+        if (dMicrobes == 5)
+        {
+            dMicrobes = 0;
+            noMicrobes = 5;
         }
         //Respawns microbes
         if (Input.GetMouseButtonDown(1))

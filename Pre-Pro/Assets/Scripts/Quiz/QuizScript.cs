@@ -15,11 +15,18 @@ public class QuizScript : MonoBehaviour {
     int questionNumber;
     string correctAnswer;
 
+    private AudioSource winSound;
+    public AudioClip win;
 
+    private AudioSource wrongSound;
+    public AudioClip wrong;
 
     // Use this for initialization
     void Start ()
     {
+        winSound = GetComponent<AudioSource>();
+        wrongSound = GetComponent<AudioSource>();
+
         questionNumber = Random.Range(0, questions.Count);
         questionObj.text = questions[questionNumber];
 
@@ -82,12 +89,14 @@ public class QuizScript : MonoBehaviour {
         {
             Debug.Log("CORRECT!!!!!!!!!");
             button.GetComponent<Image>().color = new Color(0f, 1f, 0f, 1f);
+            winSound.PlayOneShot(win,0.8f);
+            Application.LoadLevel("Menu");
         }
         else
         {
             Debug.Log("FALSE :(");
             button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
-
+            wrongSound.PlayOneShot(wrong, 0.8f);
         }
     }
 

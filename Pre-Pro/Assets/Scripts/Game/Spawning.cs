@@ -92,6 +92,7 @@ public class Spawning : MonoBehaviour {
     {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
+        
         Instantiate(microbe, transform.position + randomPos, Quaternion.identity);
 
        

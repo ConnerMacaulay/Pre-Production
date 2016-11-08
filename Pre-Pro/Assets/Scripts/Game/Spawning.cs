@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Spawning : MonoBehaviour {
 
+
     public float range = 10f;
     public GameObject microbe;
     public int noMicrobes;
@@ -17,9 +18,12 @@ public class Spawning : MonoBehaviour {
     private AudioSource bubbleSound;
     public AudioClip bubble;
 
+    HandSwitch handSwitch;
+
     // Use this for initialization
     void Start () {
 
+       
         bubbleSound = GetComponent<AudioSource>();
 
         setMicrobes = noMicrobes;
@@ -94,10 +98,9 @@ public class Spawning : MonoBehaviour {
         randomPos.z = -1;
         
         Instantiate(microbe, transform.position + randomPos, Quaternion.identity);
-
-       
-       
     }
+
+   
 
     private void SpawnClockPower()
     {

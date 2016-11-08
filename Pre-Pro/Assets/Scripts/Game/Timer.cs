@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour {
     public int timeLeftInt;
     public Text timer;
 
+
     void Start()
     {
        // timeLeft = 10; //Resetst the timer to the set time on start

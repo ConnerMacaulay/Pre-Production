@@ -8,6 +8,7 @@ public class MenuManager : MonoBehaviour {
 
     void Start()
     {
+
         GameObject scoreManager = GameObject.Find("ScoreManager");
         if (scoreManager != null)
         {

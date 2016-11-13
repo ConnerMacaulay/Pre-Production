@@ -4,12 +4,12 @@ using System.Collections;
 public class MicrobeScript : MonoBehaviour {
 
 
-    bool frontMicrobe;
+    public bool frontMicrobe;
     HandSwitch handSwitch;
 	// Use this for initialization
 	void Awake () {
-
         handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
+
         if (handSwitch == null)
         {
             Debug.LogError("CANT FIND HANDS SCRIPT!!!");
@@ -26,36 +26,74 @@ public class MicrobeScript : MonoBehaviour {
             frontMicrobe = true;
         }
 
+
+        if (frontMicrobe)
+        {
+            if (handSwitch.front == true)
+            {
+                EnableComponents();
+            }
+            else
+            {
+                DisableComponents();
+            }
+        }
+        else
+        {
+            if (handSwitch.front == true)
+            {
+                DisableComponents();
+            }
+            else
+            {
+                EnableComponents();
+            }
+        }
+
     }
 
 
-	
-	// Update is called once per frame
-	void Update ()
+    void Update ()
     {
+        handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
+
         if (handSwitch.front == true)
         {
             if (frontMicrobe)
             {
-                this.gameObject.SetActive(true);
+                EnableComponents();
+
             }
             else
             {
-                this.gameObject.SetActive(false);
+                DisableComponents();
             }
         }
-        else if (handSwitch.front == false)
+        else if (handSwitch.front !=true)
         {
             if (frontMicrobe)
             {
-                this.gameObject.SetActive(false);
+                DisableComponents();
+
             }
             else
             {
-                this.gameObject.SetActive(true);
-
+                EnableComponents();
             }
         }
+
+       
 	
 	}
+
+    void EnableComponents()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+        GetComponent<BoxCollider>().enabled = true;
+    }
+    void DisableComponents()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<BoxCollider>().enabled = false;
+    }
 }

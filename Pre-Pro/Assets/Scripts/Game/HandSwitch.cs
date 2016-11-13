@@ -8,17 +8,20 @@ public class HandSwitch : MonoBehaviour {
     public List<Sprite> handSprites = new List<Sprite>();
     public GameObject left;
     public GameObject right;
-    public bool front;
-	// Use this for initialization
-	void Start () {
-        front = true;
+    public bool front = true;
 
 
-	
-	}
-	
+    // Use this for initialization
+    void Start () {
+
+       
+
+    }
+
     public void SwitchHands()
     {
+
+  
         if (front == true)
         {
             front = false;
@@ -36,12 +39,15 @@ public class HandSwitch : MonoBehaviour {
             left.GetComponent<SpriteRenderer>().sprite = handSprites[0];
             right.GetComponent<SpriteRenderer>().sprite = handSprites[1];
 
+         
+
             
         }
         else
         {
             left.GetComponent<SpriteRenderer>().sprite = handSprites[2];
             right.GetComponent<SpriteRenderer>().sprite = handSprites[3];
+          
         }
 	
 	}

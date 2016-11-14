@@ -8,83 +8,95 @@ public class MicrobeScript : MonoBehaviour {
     HandSwitch handSwitch;
 	// Use this for initialization
 	void Awake () {
-        handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
 
-        if (handSwitch == null)
+        if (Application.loadedLevelName == "MicrobeBuster")
         {
-            Debug.LogError("CANT FIND HANDS SCRIPT!!!");
-        }
+            handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
 
-        int randomChance = Random.Range(-1, 1);
-
-        if (randomChance == 0)
-        {
-            frontMicrobe = false;
-        }
-        else
-        {
-            frontMicrobe = true;
-        }
-
-
-        if (frontMicrobe)
-        {
-            if (handSwitch.front == true)
+            if (handSwitch == null)
             {
-                EnableComponents();
+                Debug.LogError("CANT FIND HANDS SCRIPT!!!");
+            }
+
+            int randomChance = Random.Range(-1, 1);
+
+            if (randomChance == 0)
+            {
+                frontMicrobe = false;
             }
             else
             {
-                DisableComponents();
+                frontMicrobe = true;
             }
-        }
-        else
-        {
-            if (handSwitch.front == true)
+
+
+            if (frontMicrobe)
             {
-                DisableComponents();
+                if (handSwitch.front == true)
+                {
+                    EnableComponents();
+                }
+                else
+                {
+                    DisableComponents();
+                }
             }
             else
             {
-                EnableComponents();
+                if (handSwitch.front == true)
+                {
+                    DisableComponents();
+                }
+                else
+                {
+                    EnableComponents();
+                }
             }
         }
 
+        if  (Application.loadedLevelName == "FallGame")
+        {
+            EnableComponents();
+        }
     }
 
 
     void Update ()
     {
-        handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
 
-        if (handSwitch.front == true)
+        if (Application.loadedLevelName == "MicrobeBuster")
         {
-            if (frontMicrobe)
-            {
-                EnableComponents();
+            handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
 
-            }
-            else
+            if (handSwitch.front == true)
             {
-                DisableComponents();
+                if (frontMicrobe)
+                {
+                    EnableComponents();
+
+                }
+                else
+                {
+                    DisableComponents();
+                }
             }
+            else if (handSwitch.front != true)
+            {
+                if (frontMicrobe)
+                {
+                    DisableComponents();
+
+                }
+                else
+                {
+                    EnableComponents();
+                }
+            }
+
         }
-        else if (handSwitch.front !=true)
-        {
-            if (frontMicrobe)
-            {
-                DisableComponents();
-
-            }
-            else
-            {
-                EnableComponents();
-            }
-        }
-
-       
 	
 	}
+
 
     void EnableComponents()
     {

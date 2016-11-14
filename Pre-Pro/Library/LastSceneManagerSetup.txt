@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/FallGame.unity
+- path: Assets/Scenes/MicrobeBuster.unity
   isLoaded: 1
   isActive: 1

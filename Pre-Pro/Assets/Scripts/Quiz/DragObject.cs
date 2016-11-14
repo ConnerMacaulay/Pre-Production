@@ -10,7 +10,6 @@ public class DragObject : MonoBehaviour {
 
     void OnMouseDown()
     {
-
         screenPoint = Camera.main.WorldToScreenPoint(
             this.gameObject.transform.position);
 
@@ -28,9 +27,5 @@ public class DragObject : MonoBehaviour {
 
         transform.position = curPosition;
 
-    }
-    void OnMouseUp()
-    {
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
     }
 }

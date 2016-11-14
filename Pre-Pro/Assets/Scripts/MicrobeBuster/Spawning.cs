@@ -48,11 +48,11 @@ public class Spawning : MonoBehaviour {
 
         }
     }
-
-    // Update is called once per frame
-    void Update()
+	
+	// Update is called once per frame
+	void Update ()
     {
-
+        
         //Click and destroy objects
         if (Input.GetMouseButtonDown(0))
         {
@@ -91,69 +91,39 @@ public class Spawning : MonoBehaviour {
 
                 }
             }
-
-            for (int i = 0; i < Input.touchCount; i++)
-            {
-                if (Input.GetTouch(i).phase == TouchPhase.Began)
-                {
-                    RaycastHit touchHit;
-                    Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-                    if (Physics.Raycast(touchRay, out touchHit))
-                    {
-                        BoxCollider bc = hit.collider as BoxCollider;
-                        if (bc != null)
-                        {
-                            if (bc.gameObject.tag == "Clock")
-                            {
-                                Destroy(bc.gameObject);
-                                GetComponent<Timer>().AddTime(3.0f);
-                            }
-
-                            else if (bc.gameObject.tag == "BadMicrobe")
-                            {
-                                Destroy(bc.gameObject);
-                                dMicrobes += 1;
-                                scoreScript.AddScore(killScore);
-                                bubbleSound.PlayOneShot(bubble, 0.8f);
-                                Debug.Log("Hit");
-                            }
-                            else if (bc.gameObject.tag == "GoodMicrobe")
-                            {
-                                Destroy(bc.gameObject);
-                                scoreScript.AddScore(-killScore);
-                                healthScript.currentHealth--;
-                                bubbleSound.PlayOneShot(bubble, 0.8f);
-                                Debug.Log("Hit");
-                            }
-
-                        }
-                    }
-                }
-            }
-
-
-
-            //Checks if all the microbes have been spawned
-            if (noMicrobes > 0)
-            {
-                waveAmount = nextWaveAmount;
-                SpawnBads();
-                noMicrobes -= 1;
-            }
-
-            if (dMicrobes == waveAmount)
-            {
-                nextWaveAmount += 1;
-                dMicrobes = 0;
-                noMicrobes = nextWaveAmount;
-                SpawnClockPower();
-                if (wave > 3)
-                {
-                    SpawnGoods();
-                }
-
-            }
         }
+
+
+        
+        //Checks if all the microbes have been spawned
+        if (noMicrobes > 0)
+        {
+            waveAmount = nextWaveAmount;
+            SpawnBads();
+            noMicrobes -= 1;
+        }
+
+        if (dMicrobes == waveAmount)
+        {
+            nextWaveAmount += 1;
+            dMicrobes = 0;
+            noMicrobes = nextWaveAmount;
+            SpawnClockPower();
+           if (wave > 3)
+            {
+                SpawnGoods();
+            }
+
+        }
+
+        /*
+        //Respawns microbes
+        if (Input.GetMouseButtonDown(1))
+        {
+            Debug.Log("Reset");
+            noMicrobes = 5;
+        }
+        */
     }
     //Creates a random spawn point for the microbes
     private void SpawnBads()

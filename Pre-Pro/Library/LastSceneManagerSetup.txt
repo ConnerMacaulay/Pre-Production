@@ -1,4 +1,8 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/Quiz.unity
+=======
+- path: Assets/FallGame.unity
+>>>>>>> parent of ee1db86... Revert "Added Fall Game"
   isLoaded: 1
   isActive: 1

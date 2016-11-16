@@ -14,7 +14,7 @@ public class HandSwitch : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-       
+        front = true;
 
     }
 

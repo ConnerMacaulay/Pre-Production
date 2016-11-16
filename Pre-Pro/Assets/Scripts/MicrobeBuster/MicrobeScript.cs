@@ -9,10 +9,8 @@ public class MicrobeScript : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 
-        if (Application.loadedLevelName == "MicrobeBuster")
-        {
+     
             handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
-
             if (handSwitch == null)
             {
                 Debug.LogError("CANT FIND HANDS SCRIPT!!!");
@@ -52,20 +50,15 @@ public class MicrobeScript : MonoBehaviour {
                     EnableComponents();
                 }
             }
-        }
+        
 
-        if  (Application.loadedLevelName == "FallGame")
-        {
-            EnableComponents();
-        }
+       
     }
 
 
     void Update ()
     {
-
-        if (Application.loadedLevelName == "MicrobeBuster")
-        {
+        
             handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
 
             if (handSwitch.front == true)
@@ -92,9 +85,6 @@ public class MicrobeScript : MonoBehaviour {
                     EnableComponents();
                 }
             }
-
-        }
-	
 	}
 
 

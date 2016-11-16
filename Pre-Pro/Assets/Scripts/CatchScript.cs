@@ -13,7 +13,7 @@ public class CatchScript : MonoBehaviour {
 	
 	}
 
-    void OnTriggerEnter(Collider coll)
+    void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.tag == "GoodMicrobe")
         {

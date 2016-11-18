@@ -3,9 +3,21 @@ using System.Collections;
 
 public class CatchScript : MonoBehaviour {
 
+    GameObject healthManager;
+    Health healthScript;
+
 	// Use this for initialization
-	void Start () {
-	
+	void Start ()
+    {
+        healthManager = GameObject.Find("Health Manager");
+        if (healthManager != null)
+        {
+            healthScript = healthManager.GetComponent<Health>();
+        }
+        else
+        {
+            Debug.LogError("HEALTH MANAGER NOT FOUND!!!");
+        }
 	}
 	
 	// Update is called once per frame
@@ -13,7 +25,7 @@ public class CatchScript : MonoBehaviour {
 	
 	}
 
-    void OnCollisionEnter(Collision coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "GoodMicrobe")
         {
@@ -22,8 +34,8 @@ public class CatchScript : MonoBehaviour {
         }
         else if (coll.gameObject.tag == "BadMicrobe")
         {
-            //deduct Health
             Destroy(coll.gameObject);
+            healthScript.currentHealth--;
 
         }
     }

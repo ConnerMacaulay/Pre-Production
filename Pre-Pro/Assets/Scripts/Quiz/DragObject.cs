@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-  [RequireComponent(typeof(BoxCollider))]
+  [RequireComponent(typeof(BoxCollider2D))]
 
 public class DragObject : MonoBehaviour {
 
@@ -29,8 +29,5 @@ public class DragObject : MonoBehaviour {
         transform.position = curPosition;
 
     }
-    void OnMouseUp()
-    {
-        gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
-    }
+   
 }

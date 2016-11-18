@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Application.loadedLevelName == "MicrobeBuster")
+        if (Application.loadedLevelName == "MicrobeBuster" || Application.loadedLevelName == "FallGame")
         {
             if (currentHealth == 2)
             {

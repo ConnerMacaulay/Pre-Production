@@ -11,7 +11,7 @@ public class HealthyHandsSpawner : MonoBehaviour {
     private int noMicrobes;
     private int waveAmount;
     private int nextWaveAmount;
-    private int dMicrobes= 0;
+    public int dMicrobes= 0;
 
     // Use this for initialization
     void Start () {

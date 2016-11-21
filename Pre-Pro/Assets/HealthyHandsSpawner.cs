@@ -46,6 +46,15 @@ public class HealthyHandsSpawner : MonoBehaviour {
 
     private void SpawnGoods()
     {
+        Vector3 randomPos = Random.insideUnitSphere * range;
+        randomPos.z = -1;
+        int randomChance = Random.Range(-1, 1);
+        Debug.Log(randomChance.ToString());
+        if (randomChance == 0)
+        {
+            GameObject goodMic = Instantiate(goodMicrobe, transform.position + randomPos, Quaternion.identity) as GameObject;
+            goodMic.transform.SetParent(this.gameObject.transform);
+        }
     }
 
     private void SpawnBads()

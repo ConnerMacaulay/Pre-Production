@@ -4,7 +4,7 @@ using System.Collections;
 public class HealthyHandsSpawner : MonoBehaviour {
 
     int wave;
-    float range = 1.0f;
+    float range = 3.0f;
     BoxCollider2D bocCollider;
     public GameObject badMicrobe;
     public GameObject goodMicrobe;

@@ -39,7 +39,7 @@ public class FallSpawn : MonoBehaviour {
         while (true)
         {
             wave++;
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(waveDelay);
 
             for (int i = 0; i < microbesAmount;i++ )
             {
@@ -56,7 +56,7 @@ public class FallSpawn : MonoBehaviour {
 
                 int randomSpawn = Random.Range(0, spawns.Count);
                 Instantiate(nextMicrobe, spawns[randomSpawn].transform.position, Quaternion.identity);
-                yield return new WaitForSeconds(1.0f);
+                yield return new WaitForSeconds(spawnDelay);
 
             }
 

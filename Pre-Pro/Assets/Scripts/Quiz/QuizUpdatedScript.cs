@@ -49,6 +49,9 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			Debug.LogError("SCORE MANAGER MISSING!!!");
 		}
+
+
+        
 	}
 
 	void SetNewQuestion()

@@ -7,7 +7,7 @@ public class WaterScript : MonoBehaviour {
     GameObject healthManager;
     HealthyHandsSpawner healthyHandsScript;
     Health healthScript;
-
+    Timer timerScript;
     float speed = 3.0f;
     public float deathTime = 1.0f;
 
@@ -16,25 +16,23 @@ public class WaterScript : MonoBehaviour {
 	void Start ()
     {
         handObj = GameObject.Find("Hand");
-        healthManager = GameObject.Find("Health Manager");
 
         if (handObj != null)
         {
             healthyHandsScript = handObj.GetComponent<HealthyHandsSpawner>();
+            timerScript = handObj.GetComponent<Timer>();
         }
         else
         {
             Debug.LogError("Hand object missing !!!");
         }
 
-        if (healthManager != null)
-        {
-            healthScript = healthManager.GetComponent<Health>();
-        }
-        else
-        {
-            Debug.LogError("HEALTH MANAGER NOT FOUND!!!");
-        }
+       
+
+
+       
+
+
 
     }
 	
@@ -49,6 +47,14 @@ public class WaterScript : MonoBehaviour {
         if(coll.gameObject.tag == "Bound")
         {
             hitBound = true;
+
+        }
+       else if (coll.gameObject.tag == "Clock")
+        {
+            Destroy(coll.gameObject);
+            timerScript.AddTime(5.0f);
+            coll = null;
+
 
         }
 
@@ -92,6 +98,7 @@ public class WaterScript : MonoBehaviour {
 
 
             }
+            
         }
 
     }

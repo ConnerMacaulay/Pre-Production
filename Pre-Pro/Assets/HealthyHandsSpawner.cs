@@ -8,6 +8,7 @@ public class HealthyHandsSpawner : MonoBehaviour {
     BoxCollider2D bocCollider;
     public GameObject badMicrobe;
     public GameObject goodMicrobe;
+    public GameObject clockObject;
     private int noMicrobes;
     private int waveAmount;
     private int nextWaveAmount;
@@ -38,9 +39,22 @@ public class HealthyHandsSpawner : MonoBehaviour {
             noMicrobes = nextWaveAmount;
             if (wave > 3)
             {
-                SpawnGoods();
+                SpawnClock();
             }
 
+        }
+    }
+
+    private void SpawnClock()
+    {
+        Vector3 randomPos = Random.insideUnitSphere * range;
+        randomPos.z = -1;
+        int randomChance = Random.Range(-1, 1);
+        Debug.Log(randomChance.ToString());
+        if (randomChance == 0)
+        {
+            GameObject clock = Instantiate(clockObject, transform.position + randomPos, Quaternion.identity) as GameObject;
+            clock.transform.SetParent(this.gameObject.transform);
         }
     }
 

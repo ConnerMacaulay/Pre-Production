@@ -56,12 +56,12 @@ public class Spawning : MonoBehaviour {
         //Click and destroy objects
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
+                Camera.main.ScreenToWorldPoint(Input.mousePosition).y),Vector2.zero,0f);
 
-            if (Physics.Raycast(ray, out hit))
+            if (hit)
             {
-                BoxCollider bc = hit.collider as BoxCollider;
+                BoxCollider2D bc = hit.collider as BoxCollider2D;
                 if (bc != null)
                 {
                     if (bc.gameObject.tag == "Clock")
@@ -96,11 +96,12 @@ public class Spawning : MonoBehaviour {
             {
                 if (Input.GetTouch(i).phase == TouchPhase.Began)
                 {
-                    RaycastHit touchHit;
-                    Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-                    if (Physics.Raycast(touchRay, out touchHit))
+                    RaycastHit2D touchHit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position).x,
+                        Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position).y), Vector2.zero, 0.0f);
+
+                    if (touchHit)
                     {
-                        BoxCollider bc = hit.collider as BoxCollider;
+                        BoxCollider2D bc = hit.collider as BoxCollider2D;
                         if (bc != null)
                         {
                             if (bc.gameObject.tag == "Clock")

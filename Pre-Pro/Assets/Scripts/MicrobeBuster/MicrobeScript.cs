@@ -7,7 +7,7 @@ public class MicrobeScript : MonoBehaviour {
     public bool frontMicrobe;
     HandSwitch handSwitch;
 	// Use this for initialization
-	void Awake () {
+	void Start() {
 
      
             handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
@@ -91,11 +91,11 @@ public class MicrobeScript : MonoBehaviour {
     void EnableComponents()
     {
         GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
     void DisableComponents()
     {
         GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 }

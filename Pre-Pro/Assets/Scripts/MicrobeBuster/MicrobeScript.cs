@@ -7,7 +7,7 @@ public class MicrobeScript : MonoBehaviour {
     public bool frontMicrobe;
     HandSwitch handSwitch;
 	// Use this for initialization
-	void Start() {
+	void Awake() {
 
      
             handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();

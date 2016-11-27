@@ -52,6 +52,25 @@ public class Spawning : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (noMicrobes > 0)
+        {
+            waveAmount = nextWaveAmount;
+            SpawnBads();
+            noMicrobes -= 1;
+        }
+
+        if (dMicrobes == waveAmount)
+        {
+            nextWaveAmount += 1;
+            dMicrobes = 0;
+            noMicrobes = nextWaveAmount;
+            SpawnClockPower();
+            if (wave > 3)
+            {
+                SpawnGoods();
+            }
+
+        }
 
         //Click and destroy objects
         if (Input.GetMouseButtonDown(0))
@@ -135,25 +154,7 @@ public class Spawning : MonoBehaviour {
 
 
             //Checks if all the microbes have been spawned
-            if (noMicrobes > 0)
-            {
-                waveAmount = nextWaveAmount;
-                SpawnBads();
-                noMicrobes -= 1;
-            }
-
-            if (dMicrobes == waveAmount)
-            {
-                nextWaveAmount += 1;
-                dMicrobes = 0;
-                noMicrobes = nextWaveAmount;
-                SpawnClockPower();
-                if (wave > 3)
-                {
-                    SpawnGoods();
-                }
-
-            }
+           
         }
     }
     //Creates a random spawn point for the microbes

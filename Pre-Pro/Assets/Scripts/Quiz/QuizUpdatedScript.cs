@@ -27,6 +27,8 @@ public class QuizUpdatedScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
+        StartCoroutine(WaitAndBegin(2.5f));
+           
 		winSound = GetComponent<AudioSource> ();
 		wrongSound = GetComponent<AudioSource> ();
 		if (unseenQuestion == null || unseenQuestion.Count == 0)
@@ -54,7 +56,25 @@ public class QuizUpdatedScript : MonoBehaviour {
         
 	}
 
-	void SetNewQuestion()
+    IEnumerator WaitAndBegin(float t)
+    {
+        Cursor.visible = false;
+        answer1Button.GetComponent<Button>().interactable = false;
+        answer2Button.GetComponent<Button>().interactable = false;
+        answer3Button.GetComponent<Button>().interactable = false;
+        answer4Button.GetComponent<Button>().interactable = false;
+
+        yield return new WaitForSeconds(t);
+
+        Cursor.visible = true;
+        answer1Button.GetComponent<Button>().interactable = true;
+        answer2Button.GetComponent<Button>().interactable = true;
+        answer3Button.GetComponent<Button>().interactable = true;
+        answer4Button.GetComponent<Button>().interactable = true;
+
+    }
+
+    void SetNewQuestion()
 	{
 		int randomQuestion = Random.Range (0, unseenQuestion.Count);
 

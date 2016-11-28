@@ -1,12 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Spawning : MonoBehaviour {
 
 
     public float range = 10f;
+
+    /*
     public GameObject badMicrobe;
     public GameObject goodMicrobe;
+    */
+    public List<GameObject> badMicrobes = new List<GameObject>();
+    public List<GameObject> goodMicrobes = new List<GameObject>();
+
+
     public int noMicrobes;
     public int setMicrobes;
     public int dMicrobes = 0;
@@ -163,8 +171,11 @@ public class Spawning : MonoBehaviour {
         wave++;
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
+
+
+        int randomInt = Random.Range(0, badMicrobes.Count);
         
-        Instantiate(badMicrobe, transform.position + randomPos, Quaternion.identity);
+        Instantiate(badMicrobes[randomInt], transform.position + randomPos, Quaternion.identity);
 
         
     }
@@ -174,10 +185,11 @@ public class Spawning : MonoBehaviour {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
         int randomChance = Random.Range(-1, 1);
-        Debug.Log(randomChance.ToString());
+
+        int randomInt = Random.Range(0, badMicrobes.Count);
         if (randomChance == 0)
         {
-            Instantiate(goodMicrobe, transform.position + randomPos, Quaternion.identity);
+            Instantiate(goodMicrobes[randomInt], transform.position + randomPos, Quaternion.identity);
         }
     }
 

@@ -1,0 +1,22 @@
+<linker>
+	<assembly fullname="Assembly-CSharp">
+		<type fullname="MenuManager">
+			<method name="ChangeScene"/>
+			<method name="ChangeScene"/>
+			<method name="ChangeScene"/>
+			<method name="ChangeScene"/>
+			<method name="ChangeScene"/>
+			<method name="ChangeScene"/>
+			<method name="ChangeScene"/>
+		</type>
+		<type fullname="HandSwitch">
+			<method name="SwitchHands"/>
+		</type>
+		<type fullname="QuizUpdatedScript">
+			<method name="Answer1"/>
+			<method name="Answer3"/>
+			<method name="Answer4"/>
+			<method name="Answer2"/>
+		</type>
+	</assembly>
+</linker>

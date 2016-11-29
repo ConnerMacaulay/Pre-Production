@@ -12,6 +12,7 @@ public class WaterScript : MonoBehaviour {
     public float deathTime = 1.0f;
 
     bool hitBound;
+    bool hitBound2;
 	// Use this for initialization
 	void Start ()
     {
@@ -35,12 +36,19 @@ public class WaterScript : MonoBehaviour {
 
 
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    void Update()
     {
-        MoveSideToSide();
-	}
+
+       
+        
+       MoveSideToSide();
+        
+       
+        
+        
+    }
 
     void OnTriggerEnter2D(Collider2D coll)
     {
@@ -49,7 +57,12 @@ public class WaterScript : MonoBehaviour {
             hitBound = true;
 
         }
-       else if (coll.gameObject.tag == "Clock")
+        if (coll.gameObject.tag == "Bound2")
+        {
+            hitBound2 = true;
+
+        }
+        else if (coll.gameObject.tag == "Clock")
         {
             Destroy(coll.gameObject);
             timerScript.AddTime(5.0f);
@@ -74,6 +87,15 @@ public class WaterScript : MonoBehaviour {
             hitBound = false;
         }
         
+    }
+    void MoveUpAndDown()
+    {
+        transform.Translate(transform.up * speed * Time.deltaTime);
+        if (hitBound == true)
+        {
+            speed = -speed;
+            hitBound = false;
+        }
     }
 
     IEnumerator DestroyMicrobe(Collider2D coll)

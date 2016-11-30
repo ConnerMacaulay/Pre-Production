@@ -28,7 +28,6 @@ public class WaterScript : MonoBehaviour {
             Debug.LogError("Hand object missing !!!");
         }
 
-       
 
 
        
@@ -41,11 +40,7 @@ public class WaterScript : MonoBehaviour {
     void Update()
     {
 
-       
-        
-       MoveSideToSide();
-        
-       
+        MoveSideToSide();
         
         
     }
@@ -75,6 +70,8 @@ public class WaterScript : MonoBehaviour {
 
        
     }
+
+    
 
    
 

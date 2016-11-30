@@ -6,11 +6,6 @@ public class Spawning : MonoBehaviour {
 
 
     public float range = 10f;
-
-    /*
-    public GameObject badMicrobe;
-    public GameObject goodMicrobe;
-    */
     public List<GameObject> badMicrobes = new List<GameObject>();
     public List<GameObject> goodMicrobes = new List<GameObject>();
 

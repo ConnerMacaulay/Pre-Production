@@ -6,8 +6,8 @@ public class FallSpawn : MonoBehaviour {
 
 
     public List<GameObject> spawns = new List<GameObject>();
-    public GameObject goodMicrobe;
-    public GameObject badMicrobe;
+    public List<GameObject> goods = new List<GameObject>();
+    public List<GameObject> bads = new List<GameObject>();
     GameObject nextMicrobe;
 
     int wave;
@@ -46,11 +46,13 @@ public class FallSpawn : MonoBehaviour {
                 int randomChance = Random.Range(-1, 1);
                 if (randomChance == 0)
                 {
-                    nextMicrobe = badMicrobe;
+                    int randomIndex = Random.Range(0, bads.Count);
+                    nextMicrobe = bads[randomIndex];
                 }
                 else
                 {
-                    nextMicrobe = goodMicrobe;
+                    int randomIndex = Random.Range(0, goods.Count);
+                    nextMicrobe = goods[randomIndex];
                 }
 
 
@@ -69,7 +71,11 @@ public class FallSpawn : MonoBehaviour {
 
     void NextWave()
     {
-        spawnDelay = spawnDelay - 0.1f;
-        microbesAmount = microbesAmount + 2;
+        if (wave < 9)
+        {
+            spawnDelay = spawnDelay - 0.1f;
+            microbesAmount = microbesAmount + 2;
+        }
+        
     }
 }

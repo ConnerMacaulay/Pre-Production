@@ -4,7 +4,9 @@ using System.Collections;
 public class CatchScript : MonoBehaviour {
 
     GameObject healthManager;
+    GameObject scoreManager;
     Health healthScript;
+    Score scoreScript;
 
 	// Use this for initialization
 	void Start ()
@@ -18,6 +20,18 @@ public class CatchScript : MonoBehaviour {
         {
             Debug.LogError("HEALTH MANAGER NOT FOUND!!!");
         }
+
+        scoreManager = GameObject.Find("ScoreManager");
+        if (scoreManager !=null)
+        {
+            scoreScript = scoreManager.GetComponent<Score>();
+        }
+        else
+        {
+            Debug.LogError("SCORE MANAGER NOT FOUND !!!!");
+        }
+
+        
 	}
 	
 	// Update is called once per frame

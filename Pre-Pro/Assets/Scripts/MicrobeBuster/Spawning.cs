@@ -112,52 +112,60 @@ public class Spawning : MonoBehaviour {
 
 
                 }
-            }
-
-            for (int i = 0; i < Input.touchCount; i++)
-            {
-                if (Input.GetTouch(i).phase == TouchPhase.Began)
-                {
-                    RaycastHit2D touchHit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position).x,
-                        Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position).y), Vector2.zero, 0.0f);
-
-                    if (touchHit)
-                    {
-                        BoxCollider2D bc = hit.collider as BoxCollider2D;
-                        if (bc != null)
-                        {
-                            if (bc.gameObject.tag == "Clock")
-                            {
-                                Destroy(bc.gameObject);
-                                GetComponent<Timer>().AddTime(3.0f);
-                            }
-
-                            else if (bc.gameObject.tag == "BadMicrobe")
-                            {
-                                Destroy(bc.gameObject);
-                                dMicrobes += 1;
-                                scoreScript.AddScore(killScore);
-                                bubbleSound.PlayOneShot(bubble, 0.8f);
-                                Debug.Log("Hit");
-                            }
-                            else if (bc.gameObject.tag == "GoodMicrobe")
-                            {
-                                Destroy(bc.gameObject);
-                                scoreScript.AddScore(-killScore);
-                                healthScript.currentHealth--;
-                                bubbleSound.PlayOneShot(bubble, 0.8f);
-                                Debug.Log("Hit");
-                            }
-
-                        }
-                    }
                 }
-            }
+
+          
 
 
 
             //Checks if all the microbes have been spawned
            
+        }
+
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            {
+                Vector2 touchInput = Input.GetTouch(i).position;
+                if (i == 0 && Input.mousePosition != Vector3.zero)
+                {
+                    touchInput = Input.mousePosition;
+                }
+
+                RaycastHit2D touchHit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(touchInput).x,
+                    Camera.main.ScreenToWorldPoint(touchInput).y), Vector2.zero, 0.0f);
+
+                if (touchHit)
+                {
+                    BoxCollider2D bc = touchHit.collider as BoxCollider2D;
+                    if (bc != null)
+                    {
+                        if (bc.gameObject.tag == "Clock")
+                        {
+                            Destroy(bc.gameObject);
+                            GetComponent<Timer>().AddTime(3.0f);
+                        }
+
+                        else if (bc.gameObject.tag == "BadMicrobe")
+                        {
+                            Destroy(bc.gameObject);
+                            dMicrobes += 1;
+                            scoreScript.AddScore(killScore);
+                            bubbleSound.PlayOneShot(bubble, 0.8f);
+                            Debug.Log("Hit");
+                        }
+                        else if (bc.gameObject.tag == "GoodMicrobe")
+                        {
+                            Destroy(bc.gameObject);
+                            scoreScript.AddScore(-killScore);
+                            healthScript.currentHealth--;
+                            bubbleSound.PlayOneShot(bubble, 0.8f);
+                            Debug.Log("Hit");
+                        }
+
+                    }
+                }
+            }
         }
     }
     //Creates a random spawn point for the microbes

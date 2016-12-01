@@ -22,7 +22,7 @@ public class DragObject : MonoBehaviour {
                 if (touchHit)
                 {
                     gameObject.transform.position = touchHit.point;
-                    offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(touchHit.point.x, touchHit.point.y));
+                    //offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector2(touchHit.point.x, touchHit.point.y));
 
                 }
             }

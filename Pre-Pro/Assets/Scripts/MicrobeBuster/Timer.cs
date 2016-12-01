@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour {
     public int timeLeftInt;
     public Text timer;
 
+    GameObject[] activeGoods;
+    GameObject[] activeBads;
 
     void Start()
     {
@@ -27,7 +29,7 @@ public class Timer : MonoBehaviour {
 
         if (timeLeftInt == 0)
         {
-            StartCoroutine(WaitAndLoadLevel(1.0f));
+            StartCoroutine(WaitAndLoadLevel("Quiz",3.0f));
         }
     }
     //Converts the Int to a string and sends it to the timer Obj
@@ -41,11 +43,23 @@ public class Timer : MonoBehaviour {
         timeLeft += time;
     }
 
-    IEnumerator WaitAndLoadLevel(float t)
+    IEnumerator WaitAndLoadLevel(string name,float t)
     {
-        Cursor.visible = false;
+        activeBads = GameObject.FindGameObjectsWithTag("BadMicrobe");
+        activeGoods = GameObject.FindGameObjectsWithTag("GoodMicrobe");
+
+        foreach(GameObject microbe in activeBads )
+        {
+            Destroy(microbe);
+        }
+        foreach(GameObject microbe in activeGoods)
+        {
+            Destroy(microbe);
+
+        }
+
         yield return new WaitForSeconds(t);
-        Application.LoadLevel("Quiz");
+        Application.LoadLevel(name);
 
 
     }

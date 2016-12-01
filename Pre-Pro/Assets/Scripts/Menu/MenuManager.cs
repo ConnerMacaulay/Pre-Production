@@ -22,6 +22,16 @@ public class MenuManager : MonoBehaviour {
 
         }
     }
+
+    void Update()
+    {
+
+        //TEMP CODE DELETE AFTER RETURN TO MENU FEATURE IS IMPLEMENTED
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Application.LoadLevel("Menu");
+        }
+    }
     // menu manager
     public void ChangeScene(string scenename)
     {

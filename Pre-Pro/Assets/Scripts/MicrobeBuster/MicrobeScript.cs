@@ -7,12 +7,10 @@ public class MicrobeScript : MonoBehaviour {
     public bool frontMicrobe;
     HandSwitch handSwitch;
 	// Use this for initialization
-	void Awake () {
+	void Awake() {
 
-        if (Application.loadedLevelName == "MicrobeBuster")
-        {
+     
             handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
-
             if (handSwitch == null)
             {
                 Debug.LogError("CANT FIND HANDS SCRIPT!!!");
@@ -52,20 +50,15 @@ public class MicrobeScript : MonoBehaviour {
                     EnableComponents();
                 }
             }
-        }
+        
 
-        if  (Application.loadedLevelName == "FallGame")
-        {
-            EnableComponents();
-        }
+       
     }
 
 
     void Update ()
     {
-
-        if (Application.loadedLevelName == "MicrobeBuster")
-        {
+        
             handSwitch = GameObject.Find("Hands").GetComponent<HandSwitch>();
 
             if (handSwitch.front == true)
@@ -92,20 +85,17 @@ public class MicrobeScript : MonoBehaviour {
                     EnableComponents();
                 }
             }
-
-        }
-	
 	}
 
 
     void EnableComponents()
     {
         GetComponent<SpriteRenderer>().enabled = true;
-        GetComponent<BoxCollider>().enabled = true;
+        GetComponent<BoxCollider2D>().enabled = true;
     }
     void DisableComponents()
     {
         GetComponent<SpriteRenderer>().enabled = false;
-        GetComponent<BoxCollider>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 }

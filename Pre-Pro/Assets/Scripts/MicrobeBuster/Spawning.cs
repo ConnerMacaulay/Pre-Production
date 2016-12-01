@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Spawning : MonoBehaviour {
 
 
     public float range = 10f;
-    public GameObject badMicrobe;
-    public GameObject goodMicrobe;
+    public List<GameObject> badMicrobes = new List<GameObject>();
+    public List<GameObject> goodMicrobes = new List<GameObject>();
+
+
     public int noMicrobes;
     public int setMicrobes;
     public int dMicrobes = 0;
@@ -52,16 +55,35 @@ public class Spawning : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (noMicrobes > 0)
+        {
+            waveAmount = nextWaveAmount;
+            SpawnBads();
+            noMicrobes -= 1;
+        }
+
+        if (dMicrobes == waveAmount)
+        {
+            nextWaveAmount += 1;
+            dMicrobes = 0;
+            noMicrobes = nextWaveAmount;
+            SpawnClockPower();
+            if (wave > 3)
+            {
+                SpawnGoods();
+            }
+
+        }
 
         //Click and destroy objects
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
+                Camera.main.ScreenToWorldPoint(Input.mousePosition).y),Vector2.zero,0f);
 
-            if (Physics.Raycast(ray, out hit))
+            if (hit)
             {
-                BoxCollider bc = hit.collider as BoxCollider;
+                BoxCollider2D bc = hit.collider as BoxCollider2D;
                 if (bc != null)
                 {
                     if (bc.gameObject.tag == "Clock")
@@ -90,68 +112,59 @@ public class Spawning : MonoBehaviour {
 
 
                 }
-            }
-
-            for (int i = 0; i < Input.touchCount; i++)
-            {
-                if (Input.GetTouch(i).phase == TouchPhase.Began)
-                {
-                    RaycastHit touchHit;
-                    Ray touchRay = Camera.main.ScreenPointToRay(Input.GetTouch(i).position);
-                    if (Physics.Raycast(touchRay, out touchHit))
-                    {
-                        BoxCollider bc = hit.collider as BoxCollider;
-                        if (bc != null)
-                        {
-                            if (bc.gameObject.tag == "Clock")
-                            {
-                                Destroy(bc.gameObject);
-                                GetComponent<Timer>().AddTime(3.0f);
-                            }
-
-                            else if (bc.gameObject.tag == "BadMicrobe")
-                            {
-                                Destroy(bc.gameObject);
-                                dMicrobes += 1;
-                                scoreScript.AddScore(killScore);
-                                bubbleSound.PlayOneShot(bubble, 0.8f);
-                                Debug.Log("Hit");
-                            }
-                            else if (bc.gameObject.tag == "GoodMicrobe")
-                            {
-                                Destroy(bc.gameObject);
-                                scoreScript.AddScore(-killScore);
-                                healthScript.currentHealth--;
-                                bubbleSound.PlayOneShot(bubble, 0.8f);
-                                Debug.Log("Hit");
-                            }
-
-                        }
-                    }
                 }
-            }
+
+          
 
 
 
             //Checks if all the microbes have been spawned
-            if (noMicrobes > 0)
-            {
-                waveAmount = nextWaveAmount;
-                SpawnBads();
-                noMicrobes -= 1;
-            }
+           
+        }
 
-            if (dMicrobes == waveAmount)
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
             {
-                nextWaveAmount += 1;
-                dMicrobes = 0;
-                noMicrobes = nextWaveAmount;
-                SpawnClockPower();
-                if (wave > 3)
+                Vector2 touchInput = Input.GetTouch(i).position;
+                if (i == 0 && Input.mousePosition != Vector3.zero)
                 {
-                    SpawnGoods();
+                    touchInput = Input.mousePosition;
                 }
 
+                RaycastHit2D touchHit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(touchInput).x,
+                    Camera.main.ScreenToWorldPoint(touchInput).y), Vector2.zero, 0.0f);
+
+                if (touchHit)
+                {
+                    BoxCollider2D bc = touchHit.collider as BoxCollider2D;
+                    if (bc != null)
+                    {
+                        if (bc.gameObject.tag == "Clock")
+                        {
+                            Destroy(bc.gameObject);
+                            GetComponent<Timer>().AddTime(3.0f);
+                        }
+
+                        else if (bc.gameObject.tag == "BadMicrobe")
+                        {
+                            Destroy(bc.gameObject);
+                            dMicrobes += 1;
+                            scoreScript.AddScore(killScore);
+                            bubbleSound.PlayOneShot(bubble, 0.8f);
+                            Debug.Log("Hit");
+                        }
+                        else if (bc.gameObject.tag == "GoodMicrobe")
+                        {
+                            Destroy(bc.gameObject);
+                            scoreScript.AddScore(-killScore);
+                            healthScript.currentHealth--;
+                            bubbleSound.PlayOneShot(bubble, 0.8f);
+                            Debug.Log("Hit");
+                        }
+
+                    }
+                }
             }
         }
     }
@@ -161,8 +174,11 @@ public class Spawning : MonoBehaviour {
         wave++;
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
+
+
+        int randomInt = Random.Range(0, badMicrobes.Count);
         
-        Instantiate(badMicrobe, transform.position + randomPos, Quaternion.identity);
+        Instantiate(badMicrobes[randomInt], transform.position + randomPos, Quaternion.identity);
 
         
     }
@@ -172,10 +188,11 @@ public class Spawning : MonoBehaviour {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
         int randomChance = Random.Range(-1, 1);
-        Debug.Log(randomChance.ToString());
+
+        int randomInt = Random.Range(0, badMicrobes.Count);
         if (randomChance == 0)
         {
-            Instantiate(goodMicrobe, transform.position + randomPos, Quaternion.identity);
+            Instantiate(goodMicrobes[randomInt], transform.position + randomPos, Quaternion.identity);
         }
     }
 

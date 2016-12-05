@@ -68,10 +68,8 @@ public class Spawning : MonoBehaviour {
             dMicrobes = 0;
             noMicrobes = nextWaveAmount;
             SpawnClockPower();
-            if (wave > 3)
-            {
-                SpawnGoods();
-            }
+            SpawnGoods();
+            
 
         }
 
@@ -187,10 +185,10 @@ public class Spawning : MonoBehaviour {
     {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
-        int randomChance = Random.Range(-1, 1);
+        float randomChance = Random.value;
 
         int randomInt = Random.Range(0, badMicrobes.Count);
-        if (randomChance == 0)
+        if (randomChance >= 0.4f)
         {
             Instantiate(goodMicrobes[randomInt], transform.position + randomPos, Quaternion.identity);
         }
@@ -200,9 +198,9 @@ public class Spawning : MonoBehaviour {
     {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
-        int randomChance = Random.Range(-1, 1);
+        float randomChance = Random.value;
         Debug.Log(randomChance.ToString());
-        if (randomChance == 0)
+        if (randomChance >= 0.4f)
         {
             Instantiate(clockPrefab, transform.position + randomPos, Quaternion.identity);
         }

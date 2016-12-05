@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 using UnityEngine.UI;
 
@@ -27,16 +28,12 @@ public class MenuManager : MonoBehaviour {
     void Update()
     {
 
-        //TEMP CODE DELETE AFTER RETURN TO MENU FEATURE IS IMPLEMENTED
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Application.LoadLevel("Menu");
-        }
+     
     }
     // menu manager
     public void ChangeScene(string scenename)
     {
-        Application.LoadLevel(scenename);
+        SceneManager.LoadScene(scenename);
     }
 
    

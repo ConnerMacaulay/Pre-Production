@@ -52,9 +52,8 @@ public class HealthyHandsSpawner : MonoBehaviour {
     {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
-        int randomChance = Random.Range(-1, 1);
-        Debug.Log(randomChance.ToString());
-        if (randomChance == 0)
+        float randomChance = Random.value;
+        if (randomChance >= 0.4)
         {
             GameObject clock = Instantiate(clockObject, transform.position + randomPos, Quaternion.identity) as GameObject;
             clock.transform.SetParent(this.gameObject.transform);
@@ -65,9 +64,9 @@ public class HealthyHandsSpawner : MonoBehaviour {
     {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
-        int randomChance = Random.Range(-1, 1);
+        float randomChance = Random.value;
         Debug.Log(randomChance.ToString());
-        if (randomChance == 0)
+        if (randomChance >= 0.4f)
         {
             GameObject goodMic = Instantiate(goodMicrobe, transform.position + randomPos, Quaternion.identity) as GameObject;
             goodMic.transform.SetParent(this.gameObject.transform);

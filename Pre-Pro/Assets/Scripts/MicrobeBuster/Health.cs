@@ -34,7 +34,17 @@ public class Health : MonoBehaviour
             }
             if (currentHealth == 0)
             {
-                Application.LoadLevel("End");
+                if (Application.loadedLevelName == "MicrobeBuster")
+                {
+                    Application.LoadLevel("End");
+
+                }
+                else if (Application.loadedLevelName == "FallGame")
+                {
+                    Application.LoadLevel("Quiz");
+
+                }
+
 
             }
         }

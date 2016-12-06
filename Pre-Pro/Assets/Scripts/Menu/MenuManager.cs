@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour {
 
-    public Text scoreText;
 
     void Start()
     {
-
+        /*
         GameObject scoreManager = GameObject.Find("ScoreManager");
         if (scoreManager != null)
         {
@@ -23,6 +22,7 @@ public class MenuManager : MonoBehaviour {
             scoreText.text = "Your Score: " + scoreManager.GetComponent<Score>().score.ToString();
 
         }
+        */
     }
 
     void Update()

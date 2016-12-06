@@ -43,11 +43,15 @@ public class Spawning : MonoBehaviour {
         setMicrobes = noMicrobes;
 
         GameObject scoreManagerObj = GameObject.Find("ScoreManager");
-
+        GameObject healthManagerObj = GameObject.Find("HealthManager");
         if (scoreManagerObj != null)
         {
             scoreScript = scoreManagerObj.GetComponent<Score>();
-            healthScript = scoreManagerObj.GetComponent<Health>();
+
+        }
+        if (healthManagerObj != null)
+        {
+            healthScript = healthManagerObj.GetComponent<Health>();
 
         }
     }

@@ -108,13 +108,16 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			answer1Button.GetComponent<Image> ().color = new Color (0f, 1f, 0f, 1f);
 			winSound.PlayOneShot (win, 0.8f);
-		}
-		else 
+            StartCoroutine(WaitAndLoad(win.length));
+
+        }
+        else 
 		{
 			answer1Button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
 			wrongSound.PlayOneShot (wrong, 0.8f);
-		}
-        StartCoroutine(WaitAndLoad(0.5f));
+            StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
+
+        }
 
     }
 
@@ -124,13 +127,16 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			answer2Button.GetComponent<Image> ().color = new Color (0f, 1f, 0f, 1f);
 			winSound.PlayOneShot (win, 0.8f);
-		}
-		else 
+            StartCoroutine(WaitAndLoad(win.length));
+
+        }
+        else 
 		{
 			answer2Button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
 			wrongSound.PlayOneShot (wrong, 0.8f);
-		}
-        StartCoroutine(WaitAndLoad(0.5f));
+            StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
+
+        }
 
     }
 
@@ -140,13 +146,16 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			answer3Button.GetComponent<Image> ().color = new Color (0f, 1f, 0f, 1f);
 			winSound.PlayOneShot (win, 0.8f);
-		}
-		else 
+            StartCoroutine(WaitAndLoad(win.length));
+
+        }
+        else 
 		{
 			answer3Button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
 			wrongSound.PlayOneShot (wrong, 0.8f);
-		}
-        StartCoroutine(WaitAndLoad(0.5f));
+            StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
+
+        }
 
     }
 
@@ -156,13 +165,16 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			answer4Button.GetComponent<Image> ().color = new Color (0f, 1f, 0f, 1f);
 			winSound.PlayOneShot (win, 0.8f);
-		}
-		else 
+            StartCoroutine(WaitAndLoad(win.length));
+
+        }
+        else 
 		{
 			answer4Button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
 			wrongSound.PlayOneShot (wrong, 0.8f);
-		}
-        StartCoroutine(WaitAndLoad(0.5f));
+            StartCoroutine(WaitAndLoad(wrong.length +0.5f));
+
+        }
 
     }
 

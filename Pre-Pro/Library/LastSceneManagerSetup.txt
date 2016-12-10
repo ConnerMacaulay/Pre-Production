@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/FallGame.unity
+- path: Assets/Scenes/HealthyHands.unity
   isLoaded: 1
   isActive: 1

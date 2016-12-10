@@ -58,12 +58,13 @@ public class Match : MonoBehaviour {
         // raycasts on mouse click to get the name of the object it collided with 
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
+                Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f); ;
+            //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit))
+            if (hit)
             {
-                BoxCollider bc = hit.collider as BoxCollider;
+                BoxCollider2D bc = hit.collider as BoxCollider2D;
                 if (bc != null)
                 {
                     print(rnd);
@@ -89,11 +90,9 @@ public class Match : MonoBehaviour {
                     BoxCollider2D bc = touchHit.collider as BoxCollider2D;
                     if (bc != null)
                     {
-                        if (bc.gameObject.tag == "Clock")
-                        {
                             print(rnd);
                             selected = bc.name;
-                        }
+                        
                     }
                 }
             }

@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Application.loadedLevelName == "MicrobeBuster" || Application.loadedLevelName == "FallGame" || Application.loadedLevelName == "HealthyHands")
+        if (Application.loadedLevelName == "MicrobeBuster" || Application.loadedLevelName == "MicrobeCatcher" || Application.loadedLevelName == "HealthyHands")
         {
             if (currentHealth == 2)
             {
@@ -39,7 +39,7 @@ public class Health : MonoBehaviour
                     Application.LoadLevel("End");
 
                 }
-                else if (Application.loadedLevelName == "FallGame")
+                else if (Application.loadedLevelName == "MicrobeCatcher")
                 {
                     Application.LoadLevel("Quiz");
 

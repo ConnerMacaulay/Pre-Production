@@ -14,17 +14,28 @@ public class SinkPlayerScript : MonoBehaviour {
 	public Transform groundCheck;
 	public float groundRadius = 0.2f;
 
+    Animator animator;
 	public Text scoreText;
+
+    GameObject menuManager;
+    MenuManager menuManagerScript;
 
 	void Awake()
 	{
 		groundCheck = transform.Find ("GroundCheck");
+        menuManager = GameObject.Find("MenuManager");
+        if (menuManager != null)
+        {
+            menuManagerScript = menuManager.GetComponent<MenuManager>();
+        }
 	}
 
 	// Use this for initialization
 	void Start () 
 	{
 		isGrounded = true;
+        animator = gameObject.GetComponent<Animator>();
+
 	}
 	
 	// Update is called once per frame
@@ -33,7 +44,7 @@ public class SinkPlayerScript : MonoBehaviour {
 		GameObject scoreManager = GameObject.Find("ScoreManager");
 		if (scoreManager != null)
 		{
-			scoreText.text = "Score: " + scoreManager.GetComponent<Score>().score.ToString();
+			//scoreText.text = "Score: " + scoreManager.GetComponent<Score>().score.ToString();
 		}
 		else
 		{
@@ -43,15 +54,30 @@ public class SinkPlayerScript : MonoBehaviour {
 		//isGrounded = Physics2D.Linecast (transform.position, groundCheck.position, 1 << LayerMask.NameToLayer ("Ground"));
 		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, ground);
 
+        /*
 		if (isGrounded && Input.GetKeyDown (KeyCode.Space)) 
 		{
 			jump = true;
 		}
-			
+        */			
 	}
 
 	void FixedUpdate()
 	{
+
+        if (!isGrounded)
+        {
+            animator.SetBool("InAir", true);
+        }
+        else
+        {
+            animator.SetBool("InAir", false);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                jump = true;
+            }
+        }
+
 		float move = Input.GetAxis ("Horizontal");
 
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (move * originalMovementSpeed, GetComponent<Rigidbody2D> ().velocity.y);
@@ -71,6 +97,10 @@ public class SinkPlayerScript : MonoBehaviour {
 			Debug.Log ("Player killed");
 			Destroy (this.gameObject);
 		}
+        else if (col.gameObject.tag == "End")
+        {
+            menuManagerScript.ChangeScene("Quiz");
+        }
 			
 	}
 }

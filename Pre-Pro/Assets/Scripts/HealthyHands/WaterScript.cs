@@ -5,6 +5,8 @@ public class WaterScript : MonoBehaviour {
 
     GameObject handObj;
     GameObject healthManager;
+    GameObject scoreManager;
+    Score scoreScript;
     HealthyHandsSpawner healthyHandsScript;
     Health healthScript;
     Timer timerScript;
@@ -17,7 +19,7 @@ public class WaterScript : MonoBehaviour {
 	void Start ()
     {
         handObj = GameObject.Find("Hand");
-
+        scoreManager = GameObject.Find("ScoreManager");
         if (handObj != null)
         {
             healthyHandsScript = handObj.GetComponent<HealthyHandsSpawner>();
@@ -26,6 +28,15 @@ public class WaterScript : MonoBehaviour {
         else
         {
             Debug.LogError("Hand object missing !!!");
+        }
+
+        if (scoreManager != null)
+        {
+            scoreScript = scoreManager.GetComponent<Score>();
+        }
+        else
+        {
+            Debug.LogError("Cant find score manager!!!");
         }
 
 
@@ -103,6 +114,7 @@ public class WaterScript : MonoBehaviour {
             if (coll.gameObject.tag == "BadMicrobe")
             {
                 Destroy(coll.gameObject);
+                scoreScript.AddScore(2);
                 coll = null;
                 healthyHandsScript.dMicrobes++;
                 

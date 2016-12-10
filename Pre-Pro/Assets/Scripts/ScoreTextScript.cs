@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ScoreTextScript : MonoBehaviour {
 
-    int score;
+    public int score;
     Text scoreText;
     GameObject scoreManager;
     Score scoreScript;

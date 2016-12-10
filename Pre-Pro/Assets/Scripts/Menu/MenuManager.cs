@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
 using UnityEngine.UI;
+
 
 public class MenuManager : MonoBehaviour {
 
+    GameObject scoreText;
+    GameObject coinText;
+    ScoreTextScript scoreTextScript;
+    int score;
+    int coins;
 
     void Start()
     {
@@ -23,6 +28,8 @@ public class MenuManager : MonoBehaviour {
 
         }
         */
+
+       
     }
 
     void Update()

@@ -12,11 +12,9 @@ public class Score : MonoBehaviour {
     {
        
 
-        if (Application.loadedLevelName != "Menu")
-        {
             DontDestroyOnLoad(this.gameObject);
 
-        }
+        
 
 
 

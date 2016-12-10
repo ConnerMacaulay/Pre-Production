@@ -21,7 +21,7 @@ public class FallSpawn : MonoBehaviour {
 	void Start () 
     {
         waveDelay = 2.0f;
-        spawnDelay = 1.0f;
+        spawnDelay = 1.25f;
         microbesAmount = 3;
         wave = 0;
         StartCoroutine(WaitAndSpawn());
@@ -43,8 +43,8 @@ public class FallSpawn : MonoBehaviour {
 
             for (int i = 0; i < microbesAmount;i++ )
             {
-                int randomChance = Random.Range(-1, 1);
-                if (randomChance == 0)
+                float randomChance = Random.value;
+                if (randomChance >= 0.5f)
                 {
                     int randomIndex = Random.Range(0, bads.Count);
                     nextMicrobe = bads[randomIndex];
@@ -73,7 +73,7 @@ public class FallSpawn : MonoBehaviour {
     {
         if (wave < 9)
         {
-            spawnDelay = spawnDelay - 0.1f;
+            spawnDelay = spawnDelay - 0.15f;
             microbesAmount = microbesAmount + 2;
         }
         

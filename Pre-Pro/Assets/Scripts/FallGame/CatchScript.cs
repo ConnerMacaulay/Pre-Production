@@ -35,7 +35,8 @@ public class CatchScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 
@@ -44,11 +45,13 @@ public class CatchScript : MonoBehaviour {
         if (coll.gameObject.tag == "GoodMicrobe")
         {
             //Add Score
+            scoreScript.AddScore(5);
             Destroy(coll.gameObject);
         }
         else if (coll.gameObject.tag == "BadMicrobe")
         {
             Destroy(coll.gameObject);
+            scoreScript.AddScore(-5);
             healthScript.currentHealth--;
 
         }

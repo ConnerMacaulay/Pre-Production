@@ -71,6 +71,33 @@ public class Match : MonoBehaviour {
                 }
             }
         }
+        for (int i = 0; i < Input.touchCount; i++)
+        {
+            if (Input.GetTouch(i).phase == TouchPhase.Began)
+            {
+                Vector2 touchInput = Input.GetTouch(i).position;
+                if (i == 0 && Input.mousePosition != Vector3.zero)
+                {
+                    touchInput = Input.mousePosition;
+                }
+
+                RaycastHit2D touchHit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(touchInput).x,
+                    Camera.main.ScreenToWorldPoint(touchInput).y), Vector2.zero, 0.0f);
+
+                if (touchHit)
+                {
+                    BoxCollider2D bc = touchHit.collider as BoxCollider2D;
+                    if (bc != null)
+                    {
+                        if (bc.gameObject.tag == "Clock")
+                        {
+                            print(rnd);
+                            selected = bc.name;
+                        }
+                    }
+                }
+            }
+        }
 
         if (selected != null)
         {

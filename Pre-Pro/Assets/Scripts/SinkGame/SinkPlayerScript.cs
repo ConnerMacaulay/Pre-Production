@@ -20,6 +20,13 @@ public class SinkPlayerScript : MonoBehaviour {
     GameObject menuManager;
     MenuManager menuManagerScript;
 
+    public Button leftButton;
+    public Button rightButton;
+    public Button jumpButton;
+
+   public bool touchRight;
+   public  bool touchLeft;
+
 	void Awake()
 	{
 		groundCheck = transform.Find ("GroundCheck");
@@ -33,7 +40,23 @@ public class SinkPlayerScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		isGrounded = true;
+        /*
+        if (SystemInfo.deviceType.ToString() == "Desktop")
+        {
+           
+            leftButton.gameObject.SetActive(false);
+            rightButton.gameObject.SetActive(false);
+            jumpButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            leftButton.gameObject.SetActive(false);
+            rightButton.gameObject.SetActive(false);
+            jumpButton.gameObject.SetActive(false);
+        }
+        */
+        
+        isGrounded = true;
         animator = gameObject.GetComponent<Animator>();
 
 	}
@@ -64,6 +87,17 @@ public class SinkPlayerScript : MonoBehaviour {
 
 	void FixedUpdate()
 	{
+        if (touchLeft)
+        {
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(-originalMovementSpeed, GetComponent<Rigidbody2D>().velocity.y);
+            transform.Translate(Vector3.right * -originalMovementSpeed * Time.deltaTime);
+
+        }
+        else if (touchRight)
+        {
+            transform.Translate(Vector3.right * originalMovementSpeed * Time.deltaTime);
+        }
+
 
         if (!isGrounded)
         {
@@ -103,4 +137,33 @@ public class SinkPlayerScript : MonoBehaviour {
         }
 			
 	}
+
+    public void TouchRightOn()
+    {
+        touchRight = true;
+
+    }
+    public void TouchRightOff()
+    {
+        touchRight = false;
+    }
+
+    public void TouchLeftOn()
+    {
+        touchLeft = true;
+
+    }
+    public void TouchLeftOff()
+    {
+        touchLeft = false;
+
+    }
+
+    public void TouchJump()
+    {
+        if (isGrounded)
+        {
+            jump = true;
+        }
+    }
 }

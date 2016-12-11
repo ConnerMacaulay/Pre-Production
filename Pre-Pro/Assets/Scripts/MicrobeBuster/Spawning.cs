@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class Spawning : MonoBehaviour {
 
@@ -29,6 +30,10 @@ public class Spawning : MonoBehaviour {
     HandSwitch handSwitch;
     int wave;
 
+    bool powerActive = false;
+    public Button powerButton;
+    float powerCooldown = 8.0f;
+    float powerTimer;
    
 
 
@@ -60,6 +65,21 @@ public class Spawning : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        if (powerActive)
+        {
+            powerCooldown = 8.0f;
+            powerButton.interactable = true;
+        }
+        else
+        {
+            powerButton.interactable = false;
+            powerCooldown -= Time.deltaTime;
+            if (powerCooldown <= 0)
+            {
+                powerActive = true;
+            }
+        }
         if (noMicrobes > 0)
         {
             waveAmount = nextWaveAmount;
@@ -209,6 +229,19 @@ public class Spawning : MonoBehaviour {
         {
             Instantiate(clockPrefab, transform.position + randomPos, Quaternion.identity);
         }
+    }
+
+    public void SoapPower()
+    {
+        GameObject[] bads = GameObject.FindGameObjectsWithTag("BadMicrobe");
+        foreach(GameObject microbe in bads)
+        {
+            Destroy(microbe);
+            dMicrobes++;
+            scoreScript.AddScore(5);
+        }
+
+        powerActive = false;
     }
 
    

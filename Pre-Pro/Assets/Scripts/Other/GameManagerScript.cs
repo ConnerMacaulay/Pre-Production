@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour {
 
     public List<string> levels = new List<string>();
-
+    GameObject scoreManager;
+    Score scoreScript;
 	// Use this for initialization
 	void Start ()
     {
-	
+        
 	}
 	
 	// Update is called once per frame

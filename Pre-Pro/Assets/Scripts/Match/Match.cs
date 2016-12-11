@@ -23,7 +23,7 @@ public class Match : MonoBehaviour {
         // timeLeft = 10; //Resetst the timer to the set time on start
         TimerCount();
 
-        rnd = Random.Range(0, 5); //sets rnd to a number between 0 and 5
+        rnd = Random.Range(0, 6); //sets rnd to a number between 0 and 5
 
         //choice = GameObject.Find("Choice");
 

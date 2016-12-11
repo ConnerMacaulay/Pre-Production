@@ -8,6 +8,9 @@ public class CatchScript : MonoBehaviour {
     Health healthScript;
     Score scoreScript;
 
+    public AudioClip bubble;
+    public AudioClip damage;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -47,11 +50,14 @@ public class CatchScript : MonoBehaviour {
             //Add Score
             scoreScript.AddScore(5);
             Destroy(coll.gameObject);
+            GetComponent<AudioSource>().PlayOneShot(bubble);
+
         }
         else if (coll.gameObject.tag == "BadMicrobe")
         {
             Destroy(coll.gameObject);
             scoreScript.AddScore(-5);
+            GetComponent<AudioSource>().PlayOneShot(damage);
             healthScript.currentHealth--;
 
         }

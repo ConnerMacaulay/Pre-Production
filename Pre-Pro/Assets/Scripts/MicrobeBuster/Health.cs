@@ -8,7 +8,6 @@ public class Health : MonoBehaviour
     public int currentHealth;
     int maxHealth = 3;
 
-
     // Use this for initialization
     void Start()
     {
@@ -31,6 +30,7 @@ public class Health : MonoBehaviour
             {
                 GameObject heart = GameObject.Find("Heart2");
                 Destroy(heart);
+
             }
             if (currentHealth == 0)
             {

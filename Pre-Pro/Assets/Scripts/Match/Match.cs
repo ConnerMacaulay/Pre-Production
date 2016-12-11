@@ -17,6 +17,9 @@ public class Match : MonoBehaviour {
     public GameObject[] wrong; // stores the wrong objects that can be chosen
     public GameObject choice;
 
+    GameObject scoreManager;
+    Score scoreScript;
+
     // Use this for initialization
     void Start ()
     {
@@ -26,6 +29,13 @@ public class Match : MonoBehaviour {
         rnd = Random.Range(0, 5); //sets rnd to a number between 0 and 5
 
         //choice = GameObject.Find("Choice");
+
+
+        scoreManager = GameObject.Find("ScoreManager");
+        if (scoreManager != null)
+        {
+            scoreScript = scoreManager.GetComponent<Score>();
+        }
 
     }
 	
@@ -52,7 +62,7 @@ public class Match : MonoBehaviour {
 
         if (timeLeftInt == 0 && hide == true)
         {
-            StartCoroutine(WaitAndLoadLevel(1.0f));
+            StartCoroutine(WaitAndLoadLevel(1.0f, "End"));
         }
 
         // raycasts on mouse click to get the name of the object it collided with 
@@ -107,12 +117,15 @@ public class Match : MonoBehaviour {
             if (answer[rnd].name == selected)
             {
                 sr.color = Color.green;
+                
                 print("Correct Tile Selected!");
-                StartCoroutine(WaitAndLoadLevel(1.0f));
+                StartCoroutine(WaitAndLoadLevel(1.0f, "Quiz"));
             }
             else
             {
+                
                 sr.color = Color.red;
+                StartCoroutine(WaitAndLoadLevel(1.0f, "End"));
             }
         }
     }
@@ -128,10 +141,10 @@ public class Match : MonoBehaviour {
         timeLeft += time;
     }
 
-    IEnumerator WaitAndLoadLevel(float t)
+    IEnumerator WaitAndLoadLevel(float t , string name)
     {
         Cursor.visible = false;
         yield return new WaitForSeconds(t);
-        Application.LoadLevel("Quiz");
+        Application.LoadLevel(name);
     }
 }

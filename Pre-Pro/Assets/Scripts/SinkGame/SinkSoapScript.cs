@@ -33,11 +33,13 @@ public class SinkSoapScript : MonoBehaviour {
 		{
 			Debug.Log ("1");
 			IncreaseMoveSpeed ();
+            AddScore();
 		}
 		else if (random == 2) 
 		{
 			Debug.Log ("2");
 			SlowWave ();
+            AddScore();
 		} 
 		else 
 		{
@@ -53,7 +55,7 @@ public class SinkSoapScript : MonoBehaviour {
 
 	public void AddScore()
 	{
-		scoreScript.score += addScoreAmount;
+		scoreScript.AddScore(Random.Range(20,50));
 	}
 
 	public void IncreaseMoveSpeed()

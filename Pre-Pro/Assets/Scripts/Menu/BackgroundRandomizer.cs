@@ -10,6 +10,7 @@ public class BackgroundRandomizer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        Cursor.visible = true;
         background = GameObject.Find("Background");
         if (background != null)
         {

@@ -24,6 +24,7 @@ public class Spawning : MonoBehaviour {
 
     private AudioSource bubbleSound;
     public AudioClip bubble;
+    public AudioClip damageSound;
 
     HandSwitch handSwitch;
     int wave;
@@ -161,7 +162,8 @@ public class Spawning : MonoBehaviour {
                             Destroy(bc.gameObject);
                             scoreScript.AddScore(-killScore);
                             healthScript.currentHealth--;
-                            bubbleSound.PlayOneShot(bubble, 0.8f);
+                            GetComponent<AudioSource>().PlayOneShot(bubble);
+                            GetComponent<AudioSource>().PlayOneShot(damageSound);
                             Debug.Log("Hit");
                         }
 
@@ -203,7 +205,6 @@ public class Spawning : MonoBehaviour {
         Vector3 randomPos = Random.insideUnitSphere * range;
         randomPos.z = -1;
         float randomChance = Random.value;
-        Debug.Log(randomChance.ToString());
         if (randomChance >= 0.4f)
         {
             Instantiate(clockPrefab, transform.position + randomPos, Quaternion.identity);

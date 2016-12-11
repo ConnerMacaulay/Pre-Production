@@ -14,6 +14,7 @@ public class HealthyHandsSpawner : MonoBehaviour {
     public int nextWaveAmount;
     public int dMicrobes= 0;
 
+    public AudioClip waveClear;
     // Use this for initialization
     void Start () {
         wave = 0;
@@ -44,7 +45,7 @@ public class HealthyHandsSpawner : MonoBehaviour {
             {
                 SpawnClock();
             }
-
+            GetComponent<AudioSource>().PlayOneShot(waveClear);
         }
     }
 

@@ -8,12 +8,19 @@ public class CatchScript : MonoBehaviour {
     Health healthScript;
     Score scoreScript;
 
-    public AudioClip bubble;
-    public AudioClip damage;
+	private AudioSource goodCatchSource;
+	public AudioClip[] goodMicrobeCatch;
+	private AudioClip goodCatchClip;
+
+	private AudioSource badMicrobeHit;
+	public AudioClip badMicrobe;
 
 	// Use this for initialization
 	void Start ()
     {
+		goodCatchSource = GetComponent<AudioSource>();
+		badMicrobeHit = GetComponent<AudioSource>();
+
         healthManager = GameObject.Find("Health Manager");
         if (healthManager != null)
         {
@@ -48,18 +55,26 @@ public class CatchScript : MonoBehaviour {
         if (coll.gameObject.tag == "GoodMicrobe")
         {
             //Add Score
+			RandomGoodMicrobeCatch();
             scoreScript.AddScore(5);
             Destroy(coll.gameObject);
-            GetComponent<AudioSource>().PlayOneShot(bubble);
 
         }
         else if (coll.gameObject.tag == "BadMicrobe")
         {
+			badMicrobeHit.PlayOneShot (badMicrobe, 0.75f);
             Destroy(coll.gameObject);
             scoreScript.AddScore(-5);
-            GetComponent<AudioSource>().PlayOneShot(damage);
             healthScript.currentHealth--;
 
         }
     }
+
+	void RandomGoodMicrobeCatch()
+	{
+		int random = Random.Range (0, goodMicrobeCatch.Length);
+		goodCatchClip = goodMicrobeCatch [random];
+		goodCatchSource.clip = goodCatchClip;
+		goodCatchSource.Play ();
+	}
 }

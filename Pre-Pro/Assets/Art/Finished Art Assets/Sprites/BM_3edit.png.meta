@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: b8aeffe25970b2f4c84fb9f8905a186f
+timeCreated: 1490285424
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BM_3_0
+    21300002: BM_3_1
+    21300004: BM_3_2
+    21300006: BM_3_3
+    21300008: BM_3_4
+    21300010: BM_3edit_0
+    21300012: BM_3edit_1
+    21300014: BM_3edit_2
+    21300016: BM_3edit_3
+    21300018: BM_3edit_4
+    21300020: BM_3edit_5
+    21300022: BM_3edit_6
+    21300024: BM_3edit_7
+    21300026: BM_3edit_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings:
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    compressionQuality: 50
+    allowsAlphaSplitting: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BM_3edit_0
+      rect:
+        serializedVersion: 2
+        x: 373
+        y: 196
+        width: 944
+        height: 1725
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM_3edit_1
+      rect:
+        serializedVersion: 2
+        x: 1730
+        y: 167
+        width: 737
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM_3edit_2
+      rect:
+        serializedVersion: 2
+        x: 2973
+        y: 126
+        width: 632
+        height: 2047
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM_3edit_3
+      rect:
+        serializedVersion: 2
+        x: 4257
+        y: 185
+        width: 739
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM_3edit_4
+      rect:
+        serializedVersion: 2
+        x: 5495
+        y: 191
+        width: 949
+        height: 1729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM_3edit_5
+      rect:
+        serializedVersion: 2
+        x: 6832
+        y: 179
+        width: 734
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM_3edit_6
+      rect:
+        serializedVersion: 2
+        x: 8158
+        y: 126
+        width: 628
+        height: 2047
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM_3edit_7
+      rect:
+        serializedVersion: 2
+        x: 9379
+        y: 179
+        width: 733
+        height: 1800
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM_3edit_8
+      rect:
+        serializedVersion: 2
+        x: 10500
+        y: 179
+        width: 948
+        height: 1724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

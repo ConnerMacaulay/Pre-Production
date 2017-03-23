@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 4648ec8578b2c06459916f0c1aa04f0d
+timeCreated: 1490274862
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: GM_2edit_0
+    21300002: GM_2edit_1
+    21300004: GM_2edit_2
+    21300006: GM_2edit_3
+    21300008: GM_2edit_4
+    21300010: GM_2edit_5
+    21300012: GM_2edit_6
+    21300014: GM_2edit_7
+    21300016: GM_2edit_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GM_2edit_0
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 305
+        width: 1583
+        height: 2528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GM_2edit_1
+      rect:
+        serializedVersion: 2
+        x: 1834
+        y: 305
+        width: 1589
+        height: 2551
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GM_2edit_2
+      rect:
+        serializedVersion: 2
+        x: 3494
+        y: 299
+        width: 1591
+        height: 2550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GM_2edit_3
+      rect:
+        serializedVersion: 2
+        x: 5154
+        y: 299
+        width: 1590
+        height: 2534
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GM_2edit_4
+      rect:
+        serializedVersion: 2
+        x: 6830
+        y: 305
+        width: 1583
+        height: 2474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GM_2edit_5
+      rect:
+        serializedVersion: 2
+        x: 8583
+        y: 299
+        width: 1598
+        height: 2534
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GM_2edit_6
+      rect:
+        serializedVersion: 2
+        x: 10251
+        y: 306
+        width: 1590
+        height: 2550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GM_2edit_7
+      rect:
+        serializedVersion: 2
+        x: 12011
+        y: 306
+        width: 1590
+        height: 2551
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GM_2edit_8
+      rect:
+        serializedVersion: 2
+        x: 13772
+        y: 329
+        width: 1583
+        height: 2528
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

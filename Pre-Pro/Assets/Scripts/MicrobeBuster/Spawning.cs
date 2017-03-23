@@ -23,9 +23,18 @@ public class Spawning : MonoBehaviour {
     Score scoreScript;
     Health healthScript;
 
-    private AudioSource bubbleSound;
-    public AudioClip bubble;
+    //private AudioSource bubbleSound;
+    //public AudioClip bubble;
+	private AudioSource damage;
     public AudioClip damageSound;
+
+	private AudioSource clock;
+	public AudioClip clockSound;
+
+	private AudioSource audioSource;
+	public AudioClip[] badMicrobeSplat;
+	private AudioClip splatClip;
+
 
     HandSwitch handSwitch;
     int wave;
@@ -44,7 +53,9 @@ public class Spawning : MonoBehaviour {
 
         wave = 0;
         nextWaveAmount = 5;
-        bubbleSound = GetComponent<AudioSource>();
+		audioSource = GetComponent<AudioSource>();
+		damage = GetComponent<AudioSource>();
+		clock = GetComponent<AudioSource>();
 
         setMicrobes = noMicrobes;
 
@@ -113,6 +124,7 @@ public class Spawning : MonoBehaviour {
                     {
                         Destroy(bc.gameObject);
                         GetComponent<Timer>().AddTime(3.0f);
+						clock.PlayOneShot (clockSound, 0.65f);
                     }
 
                     else if (bc.gameObject.tag == "BadMicrobe")
@@ -120,7 +132,8 @@ public class Spawning : MonoBehaviour {
                         Destroy(bc.gameObject);
                         dMicrobes += 1;
                         scoreScript.AddScore(killScore);
-                        bubbleSound.PlayOneShot(bubble, 0.8f);
+                        //bubbleSound.PlayOneShot(bubble, 0.8f);
+						RandomBadMicrobeHitAudio();
                         Debug.Log("Hit");
                     }
                     else if (bc.gameObject.tag == "GoodMicrobe")
@@ -128,7 +141,7 @@ public class Spawning : MonoBehaviour {
                         Destroy(bc.gameObject);
                         scoreScript.AddScore(-killScore);
                         healthScript.currentHealth--;
-                        bubbleSound.PlayOneShot(bubble, 0.8f);
+						damage.PlayOneShot (damageSound, 0.7f);
                         Debug.Log("Hit");
                     }
 
@@ -174,7 +187,7 @@ public class Spawning : MonoBehaviour {
                             Destroy(bc.gameObject);
                             dMicrobes += 1;
                             scoreScript.AddScore(killScore);
-                            bubbleSound.PlayOneShot(bubble, 0.8f);
+							RandomBadMicrobeHitAudio();
                             Debug.Log("Hit");
                         }
                         else if (bc.gameObject.tag == "GoodMicrobe")
@@ -182,8 +195,9 @@ public class Spawning : MonoBehaviour {
                             Destroy(bc.gameObject);
                             scoreScript.AddScore(-killScore);
                             healthScript.currentHealth--;
-                            GetComponent<AudioSource>().PlayOneShot(bubble);
-                            GetComponent<AudioSource>().PlayOneShot(damageSound);
+							damage.PlayOneShot (damageSound, 0.7f);
+                            //GetComponent<AudioSource>().PlayOneShot(bubble);
+                            //GetComponent<AudioSource>().PlayOneShot(damageSound);
                             Debug.Log("Hit");
                         }
 
@@ -243,6 +257,14 @@ public class Spawning : MonoBehaviour {
 
         powerActive = false;
     }
+
+	public void RandomBadMicrobeHitAudio()
+	{
+		int random = Random.Range (0, badMicrobeSplat.Length);
+		splatClip = badMicrobeSplat [random];
+		audioSource.clip = splatClip;
+		audioSource.Play ();
+	}
 
    
 }

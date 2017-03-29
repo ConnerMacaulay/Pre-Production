@@ -5,7 +5,11 @@ using System.Collections.Generic;
 public class HandSwitch : MonoBehaviour {
 
 
-    public List<Sprite> handSprites = new List<Sprite>();
+    public List<Sprite> handSpritesWhite = new List<Sprite>();
+	public List<Sprite> handSpriteBrown = new List<Sprite>();
+	public List<Sprite> handSpriteBlack = new List<Sprite>(); 
+	public List<Sprite> randomSprite = new List<Sprite>();
+	public int random;
     public GameObject left;
     public GameObject right;
     public bool front = true;
@@ -15,13 +19,12 @@ public class HandSwitch : MonoBehaviour {
     void Start () {
 
         front = true;
+		SelectRandom ();
 
     }
 
     public void SwitchHands()
     {
-
-  
         if (front == true)
         {
             front = false;
@@ -36,19 +39,36 @@ public class HandSwitch : MonoBehaviour {
 
         if (front == true)
         {
-            left.GetComponent<SpriteRenderer>().sprite = handSprites[0];
-            right.GetComponent<SpriteRenderer>().sprite = handSprites[1];
+			left.GetComponent<SpriteRenderer>().sprite = randomSprite[0];
+			right.GetComponent<SpriteRenderer>().sprite = randomSprite[1];
 
-         
-
-            
         }
         else
         {
-            left.GetComponent<SpriteRenderer>().sprite = handSprites[2];
-            right.GetComponent<SpriteRenderer>().sprite = handSprites[3];
+			left.GetComponent<SpriteRenderer>().sprite = randomSprite[2];
+			right.GetComponent<SpriteRenderer>().sprite = randomSprite[3];
           
         }
 	
+	}
+
+	void SelectRandom()
+	{
+		random = Random.Range (0, 3);
+
+		if (random == 0) 
+		{
+			randomSprite = handSpriteBlack;
+		}
+		else if (random == 1)
+		{
+			randomSprite = handSpritesWhite;
+		}
+		else if (random == 2)
+		{
+			randomSprite = handSpriteBrown;
+		}
+			
+
 	}
 }

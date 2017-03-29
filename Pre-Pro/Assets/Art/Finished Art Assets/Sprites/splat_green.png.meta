@@ -1,9 +1,15 @@
 fileFormatVersion: 2
-guid: ec72efe26e001664bb40a5362804dea6
-timeCreated: 1490282419
+guid: 7f9fe33bfee7f0a4cb228e433a8c84fd
+timeCreated: 1490716712
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: sg1
+    21300002: sg2
+    21300004: sg5
+    21300006: sg0
+    21300008: sg4
+    21300010: sg3
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -51,7 +57,85 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: sg1
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 297
+        width: 743
+        height: 765
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sg2
+      rect:
+        serializedVersion: 2
+        x: 1473
+        y: 145
+        width: 948
+        height: 998
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sg5
+      rect:
+        serializedVersion: 2
+        x: 4946
+        y: 133
+        width: 1177
+        height: 1070
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sg0
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 443
+        width: 314
+        height: 370
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sg4
+      rect:
+        serializedVersion: 2
+        x: 3677
+        y: 106
+        width: 1079
+        height: 1108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: sg3
+      rect:
+        serializedVersion: 2
+        x: 2520
+        y: 81
+        width: 1084
+        height: 1118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

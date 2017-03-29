@@ -131,9 +131,6 @@ public class Spawning : MonoBehaviour {
                         bubbleSound.PlayOneShot(bubble, 0.8f);
                         Debug.Log("Hit");
                     }
-
-
-
                 }
                 }
 

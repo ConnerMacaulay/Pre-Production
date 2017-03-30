@@ -15,9 +15,24 @@ public class WaterScript : MonoBehaviour {
 
     bool hitBound;
     bool hitBound2;
+
+	private AudioSource damage;
+	public AudioClip damageSound;
+
+	private AudioSource clock;
+	public AudioClip clockSound;
+
+	private AudioSource audioSource;
+	public AudioClip[] badMicrobeSplat;
+	private AudioClip splatClip;
+
 	// Use this for initialization
 	void Start ()
     {
+		audioSource = GetComponent<AudioSource>();
+		damage = GetComponent<AudioSource>();
+		clock = GetComponent<AudioSource>();
+
         handObj = GameObject.Find("Hand");
         scoreManager = GameObject.Find("ScoreManager");
         if (handObj != null)
@@ -70,6 +85,7 @@ public class WaterScript : MonoBehaviour {
         }
         else if (coll.gameObject.tag == "Clock")
         {
+			clock.PlayOneShot (clockSound, 0.65f);
             Destroy(coll.gameObject);
             timerScript.AddTime(5.0f);
             coll = null;
@@ -113,6 +129,7 @@ public class WaterScript : MonoBehaviour {
         {
             if (coll.gameObject.tag == "BadMicrobe")
             {
+				RandomBadMicrobeHitAudio ();
                 Destroy(coll.gameObject);
                 scoreScript.AddScore(2);
                 coll = null;
@@ -122,6 +139,7 @@ public class WaterScript : MonoBehaviour {
             }
             else if (coll.gameObject.tag == "GoodMicrobe")
             {
+				damage.PlayOneShot (damageSound, 0.75f);
                 Destroy(coll.gameObject);
                 coll = null;
 
@@ -133,9 +151,13 @@ public class WaterScript : MonoBehaviour {
         }
 
     }
-    
 
-    
-
-    
+	public void RandomBadMicrobeHitAudio()
+	{
+		int random = Random.Range (0, badMicrobeSplat.Length);
+		splatClip = badMicrobeSplat [random];
+		audioSource.clip = splatClip;
+		audioSource.Play ();
+	}
+        
 }

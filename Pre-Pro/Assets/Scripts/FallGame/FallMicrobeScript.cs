@@ -3,6 +3,8 @@ using System.Collections;
 
 public class FallMicrobeScript : MonoBehaviour {
 
+	private AudioSource missedGoodMicrobe;
+	public AudioClip missedGoodClip;
 
     float lifetime = 2.5f;
     GameObject healthManager;
@@ -19,6 +21,8 @@ public class FallMicrobeScript : MonoBehaviour {
         {
             Debug.LogError("Cant find health manage!!!!!");
         }
+
+		missedGoodMicrobe = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -34,6 +38,7 @@ public class FallMicrobeScript : MonoBehaviour {
 
             if (gameObject.tag == "GoodMicrobe")
             {
+				missedGoodMicrobe.PlayOneShot (missedGoodClip, 0.70f);
                 healthScript.currentHealth--;
             }
         }

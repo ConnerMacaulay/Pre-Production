@@ -1,0 +1,185 @@
+fileFormatVersion: 2
+guid: 7281221b2c1202f40b4616d03a40f748
+timeCreated: 1490831794
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: BM2(yell)_0
+    21300002: BM2(yell)_1
+    21300004: BM2(yell)_2
+    21300006: BM2(yell)_3
+    21300008: BM2(yell)_4
+    21300010: BM2(yell)_5
+    21300012: BM2(yell)_6
+    21300014: BM2(yell)_7
+    21300016: BM2(yell)_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 0
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BM2(yell)_0
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 695
+        width: 1353
+        height: 1725
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM2(yell)_1
+      rect:
+        serializedVersion: 2
+        x: 1775
+        y: 444
+        width: 1109
+        height: 1996
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM2(yell)_2
+      rect:
+        serializedVersion: 2
+        x: 3191
+        y: 199
+        width: 1340
+        height: 2214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM2(yell)_3
+      rect:
+        serializedVersion: 2
+        x: 4803
+        y: 186
+        width: 1353
+        height: 2233
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM2(yell)_4
+      rect:
+        serializedVersion: 2
+        x: 6407
+        y: 562
+        width: 1437
+        height: 1844
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM2(yell)_5
+      rect:
+        serializedVersion: 2
+        x: 8123
+        y: 186
+        width: 1353
+        height: 2233
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM2(yell)_6
+      rect:
+        serializedVersion: 2
+        x: 9755
+        y: 192
+        width: 1340
+        height: 2221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM2(yell)_7
+      rect:
+        serializedVersion: 2
+        x: 11374
+        y: 423
+        width: 1109
+        height: 1996
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: BM2(yell)_8
+      rect:
+        serializedVersion: 2
+        x: 12762
+        y: 688
+        width: 1353
+        height: 1731
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

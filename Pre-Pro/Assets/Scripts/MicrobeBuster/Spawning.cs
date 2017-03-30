@@ -136,19 +136,14 @@ public class Spawning : MonoBehaviour {
                         hitAnimator = bc.GetComponent<Animator>();
                         hitAnimator.Play("Splat");
                         StartCoroutine (animTime());
-                      /*  hitAnimator.runtimeAnimatorController = splat;
+                     
                        
                         dMicrobes += 1;
                         scoreScript.AddScore(killScore);
                      //   bubbleSound.PlayOneShot(bubble, 0.8f);
                         RandomBadMicrobeHitAudio();
                         Debug.Log("Hit");
-                        pause -=Time.deltaTime;
-                        if(pause <= 0)
-                        {
-                            Destroy(bc.gameObject);
-                            pause = 1f;
-                        }*/
+                       
                         
                     }
                     else if (bc.gameObject.tag == "GoodMicrobe")

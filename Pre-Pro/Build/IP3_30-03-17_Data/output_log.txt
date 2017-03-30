@@ -1,0 +1,71 @@
+Initialize engine version: 5.4.1f1 (649f48bbbf0f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     3072 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.170 seconds
+Platform assembly: D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\Uni\Pre-Production\Pre-Production\Pre-Pro\Build\IP3_30-03-17_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.741181 ms
+The referenced script on this Behaviour (Game Object 'Main Camera') is missing!
+ 
+(Filename:  Line: 1656)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.530110 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 430.
+Total: 0.250632 ms (FindLiveObjects: 0.019601 ms CreateObjectMapping: 0.026918 ms MarkObjects: 0.196010 ms  DeleteObjects: 0.007317 ms)
+
+NullReferenceException
+  at (wrapper managed-to-native) UnityEngine.Component:get_gameObject ()
+  at Spawning+<animTime>c__Iterator5.MoveNext () [0x00000] in <filename unknown>:0 
+  at UnityEngine.SetupCoroutine.InvokeMoveNext (IEnumerator enumerator, IntPtr returnValueAddress) [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.506752 ms
+
+Unloading 160 unused Assets to reduce memory usage. Loaded Objects now: 282.
+Total: 0.381044 ms (FindLiveObjects: 0.020123 ms CreateObjectMapping: 0.018555 ms MarkObjects: 0.214304 ms  DeleteObjects: 0.127276 ms)
+
+Can not play a disabled audio source
+ 
+(Filename:  Line: 432)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.508843 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 293.
+Total: 0.204373 ms (FindLiveObjects: 0.017248 ms CreateObjectMapping: 0.014635 ms MarkObjects: 0.163080 ms  DeleteObjects: 0.008885 ms)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 2434 -> priority: 1 
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.504139 ms
+
+Unloading 47 unused Assets to reduce memory usage. Loaded Objects now: 285.
+Total: 0.628017 ms (FindLiveObjects: 0.042599 ms CreateObjectMapping: 0.040508 ms MarkObjects: 0.438018 ms  DeleteObjects: 0.105061 ms)
+
+Can not play a disabled audio source
+ 
+(Filename:  Line: 432)
+

@@ -17,6 +17,8 @@ public class QuizUpdatedScript : MonoBehaviour {
 	public Button answer2Button;
 	public Button answer3Button;
 	public Button answer4Button;
+	public GameObject helpTextPanel;
+	public Text helpText;
 
 	private AudioSource winSound;
 	public AudioClip win;
@@ -83,8 +85,12 @@ public class QuizUpdatedScript : MonoBehaviour {
         Cursor.visible = true;
         answer1Button.GetComponent<Button>().interactable = true;
         answer2Button.GetComponent<Button>().interactable = true;
-        answer3Button.GetComponent<Button>().interactable = true;
-        answer4Button.GetComponent<Button>().interactable = true;
+
+		if (currentQuestion.trueOrFalseQuestion != true) 
+		{
+			answer3Button.GetComponent<Button> ().interactable = true;
+			answer4Button.GetComponent<Button> ().interactable = true;
+		}
 
     }
 
@@ -108,14 +114,18 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			answer1Button.GetComponent<Image> ().color = new Color (0f, 1f, 0f, 1f);
 			winSound.PlayOneShot (win, 0.8f);
-            StartCoroutine(WaitAndLoad(win.length));
+			helpTextPanel.gameObject.SetActive (true);
+			helpText.text = currentQuestion.answer1Text;
+            //StartCoroutine(WaitAndLoad(win.length));
 
         }
         else 
 		{
 			answer1Button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
 			wrongSound.PlayOneShot (wrong, 0.8f);
-            StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
+			helpTextPanel.gameObject.SetActive (true);
+			helpText.text = currentQuestion.answer1Text;
+            //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
         }
 
@@ -127,14 +137,18 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			answer2Button.GetComponent<Image> ().color = new Color (0f, 1f, 0f, 1f);
 			winSound.PlayOneShot (win, 0.8f);
-            StartCoroutine(WaitAndLoad(win.length));
+			helpTextPanel.gameObject.SetActive (true);
+			helpText.text = currentQuestion.answer2Text;
+            //StartCoroutine(WaitAndLoad(win.length));
 
         }
         else 
 		{
 			answer2Button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
 			wrongSound.PlayOneShot (wrong, 0.8f);
-            StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
+			helpTextPanel.gameObject.SetActive (true);
+			helpText.text = currentQuestion.answer2Text;
+            //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
         }
 
@@ -146,14 +160,18 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			answer3Button.GetComponent<Image> ().color = new Color (0f, 1f, 0f, 1f);
 			winSound.PlayOneShot (win, 0.8f);
-            StartCoroutine(WaitAndLoad(win.length));
+			helpTextPanel.gameObject.SetActive (true);
+			helpText.text = currentQuestion.answer3Text;
+            //StartCoroutine(WaitAndLoad(win.length));
 
         }
         else 
 		{
 			answer3Button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
 			wrongSound.PlayOneShot (wrong, 0.8f);
-            StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
+			helpTextPanel.gameObject.SetActive (true);
+			helpText.text = currentQuestion.answer3Text;
+            //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
         }
 
@@ -165,26 +183,34 @@ public class QuizUpdatedScript : MonoBehaviour {
 		{
 			answer4Button.GetComponent<Image> ().color = new Color (0f, 1f, 0f, 1f);
 			winSound.PlayOneShot (win, 0.8f);
-            StartCoroutine(WaitAndLoad(win.length));
+			helpTextPanel.gameObject.SetActive (true);
+			helpText.text = currentQuestion.answer4Text;
+            //StartCoroutine(WaitAndLoad(win.length));
 
         }
         else 
 		{
 			answer4Button.GetComponent<Image>().color = new Color(1f, 0f, 0f, 1f);
 			wrongSound.PlayOneShot (wrong, 0.8f);
-            StartCoroutine(WaitAndLoad(wrong.length +0.5f));
+			helpTextPanel.gameObject.SetActive (true);
+			helpText.text = currentQuestion.answer4Text;
+            //StartCoroutine(WaitAndLoad(wrong.length +0.5f));
 
         }
 
     }
 
+	public void RandomScene()
+	{
+		gameManagementScript.RandomScene();
+	}
+
+
     IEnumerator WaitAndLoad(float time)
     {
         yield return new WaitForSeconds(time);
         gameManagementScript.RandomScene();
-        
-
-        
+      
     }
 
 }

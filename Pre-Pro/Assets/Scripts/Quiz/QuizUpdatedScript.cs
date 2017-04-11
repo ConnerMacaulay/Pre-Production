@@ -116,6 +116,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			winSound.PlayOneShot (win, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer1Text;
+			helpText.GetComponent<Text> ().color = new Color (0f, 1f, 0f, 1f);
 			DisableButtons ();
             //StartCoroutine(WaitAndLoad(win.length));
 
@@ -126,6 +127,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			wrongSound.PlayOneShot (wrong, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer1Text;
+			helpText.GetComponent<Text> ().color = new Color (1f, 0f, 0f, 1f);
 			DisableButtons ();
             //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
@@ -141,6 +143,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			winSound.PlayOneShot (win, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer2Text;
+			helpText.GetComponent<Text> ().color = new Color (0f, 1f, 0f, 1f);
 			DisableButtons ();
             //StartCoroutine(WaitAndLoad(win.length));
 
@@ -151,6 +154,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			wrongSound.PlayOneShot (wrong, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer2Text;
+			helpText.GetComponent<Text> ().color = new Color (1f, 0f, 0f, 1f);
 			DisableButtons ();
             //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
@@ -166,6 +170,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			winSound.PlayOneShot (win, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer3Text;
+			helpText.GetComponent<Text> ().color = new Color (0f, 1f, 0f, 1f);
 			DisableButtons ();
             //StartCoroutine(WaitAndLoad(win.length));
 
@@ -176,6 +181,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			wrongSound.PlayOneShot (wrong, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer3Text;
+			helpText.GetComponent<Text> ().color = new Color (1f, 0f, 0f, 1f);
 			DisableButtons ();
             //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
@@ -191,6 +197,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			winSound.PlayOneShot (win, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer4Text;
+			helpText.GetComponent<Text> ().color = new Color (0f, 1f, 0f, 1f);
 			DisableButtons ();
             //StartCoroutine(WaitAndLoad(win.length));
 
@@ -201,6 +208,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			wrongSound.PlayOneShot (wrong, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer4Text;
+			helpText.GetComponent<Text> ().color = new Color (1f, 0f, 0f, 1f);
 			DisableButtons ();
             //StartCoroutine(WaitAndLoad(wrong.length +0.5f));
 

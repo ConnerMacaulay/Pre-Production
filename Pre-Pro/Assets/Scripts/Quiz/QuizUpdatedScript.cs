@@ -116,6 +116,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			winSound.PlayOneShot (win, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer1Text;
+			DisableButtons ();
             //StartCoroutine(WaitAndLoad(win.length));
 
         }
@@ -125,6 +126,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			wrongSound.PlayOneShot (wrong, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer1Text;
+			DisableButtons ();
             //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
         }
@@ -139,6 +141,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			winSound.PlayOneShot (win, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer2Text;
+			DisableButtons ();
             //StartCoroutine(WaitAndLoad(win.length));
 
         }
@@ -148,6 +151,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			wrongSound.PlayOneShot (wrong, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer2Text;
+			DisableButtons ();
             //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
         }
@@ -162,6 +166,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			winSound.PlayOneShot (win, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer3Text;
+			DisableButtons ();
             //StartCoroutine(WaitAndLoad(win.length));
 
         }
@@ -171,6 +176,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			wrongSound.PlayOneShot (wrong, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer3Text;
+			DisableButtons ();
             //StartCoroutine(WaitAndLoad(wrong.length + 0.5f));
 
         }
@@ -185,6 +191,7 @@ public class QuizUpdatedScript : MonoBehaviour {
 			winSound.PlayOneShot (win, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer4Text;
+			DisableButtons ();
             //StartCoroutine(WaitAndLoad(win.length));
 
         }
@@ -194,11 +201,20 @@ public class QuizUpdatedScript : MonoBehaviour {
 			wrongSound.PlayOneShot (wrong, 0.8f);
 			helpTextPanel.gameObject.SetActive (true);
 			helpText.text = currentQuestion.answer4Text;
+			DisableButtons ();
             //StartCoroutine(WaitAndLoad(wrong.length +0.5f));
 
         }
 
     }
+
+	public void DisableButtons ()
+	{
+		answer1Button.GetComponent<Button> ().interactable = false;
+		answer2Button.GetComponent<Button> ().interactable = false;
+		answer3Button.GetComponent<Button> ().interactable = false;
+		answer4Button.GetComponent<Button> ().interactable = false;
+	}
 
 	public void RandomScene()
 	{
